@@ -1,0 +1,200 @@
+<div>
+  {% for block in section.blocks %}
+  <div class="grid-item diff-hero" {{ block.shopify_attributes }}>
+    {% case block.type %}
+
+      {% when 'full-width-media' %}
+        {% include 'full-width-media' %}
+
+    {% endcase %}
+  </div>
+  {% endfor %}
+</div>
+
+{% schema %}
+  {
+    "blocks": [
+      {
+        "name": "Full width media",
+        "type": "full-width-media",
+        "settings": [
+          {
+            "type": "paragraph",
+            "content": "This section is designed to showcase your product philosophy. Display a Full width feature, either as an image or a video. Expand on the feature with a title, text, and a call to action button."
+          },
+          {
+            "type": "select",
+            "id": "style",
+            "label": "Background style",
+            "options": [
+              {
+                "value": "default",
+                "label": "Default"
+              },
+              {
+                "value": "light",
+                "label": "Light"
+              },
+              {
+                "value": "color",
+                "label": "Color"
+              },
+              {
+                "value": "gradient",
+                "label": "Gradient"
+              },
+              {
+                "value": "secondary-color",
+                "label": "Secondary Color"
+              },
+              {
+                "value": "third-color",
+                "label": "Third Color"
+              },
+              {
+                "value": "fourth-color",
+                "label": "Fourth Color"
+              },
+              {
+                "value": "fifth-color",
+                "label": "Fifth Color"
+              }
+            ],
+            "default": "default"
+          },
+          {
+            "type": "select",
+            "id": "alignment",
+            "label": "Text alignment",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
+            ],
+            "default": "center"
+          },
+          {
+            "type": "select",
+            "id": "height",
+            "label": "Section Height",
+            "options": [
+              {
+                "value": "default",
+                "label": "Default"
+              },
+              {
+                "value": "tall",
+                "label": "Tall"
+              }
+            ],
+            "default": "default"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Full width media"
+          },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text",
+            "default": "<p>Display a full width feature that can contain a large image, or video, and an optional call to action button.</p>"
+          },
+          {
+            "type": "select",
+            "id": "media_layout",
+            "label": "Media type",
+            "options": [
+              {
+                "value": "none",
+                "label": "None"
+              },
+              {
+                "value": "image-highlight",
+                "label": "Image"
+              },
+              {
+                "value": "video-highlight",
+                "label": "Video"
+              }
+            ],
+            "default": "none"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image",
+            "info": "2000x900 jpg recommended."
+          },
+          {
+            "type": "video_url",
+            "id": "video_url",
+            "label": "Youtube or Vimeo link",
+            "accept": ["youtube", "vimeo"]
+          },
+          {
+            "type": "text",
+            "id": "button_text",
+            "label": "Button text",
+            "info": "This button is only visible when 'Media type' is set to Image"
+          },
+          {
+            "type": "url",
+            "id": "button_link",
+            "label": "Link"
+          },
+          {
+            "type": "select",
+            "id": "button_style",
+            "label": "Button Style",
+            "options": [
+              {
+                "value": "light",
+                "label": "Light"
+              },
+              {
+                "value": "primary",
+                "label": "Primary"
+              },
+              {
+                "value": "secondary",
+                "label": "Secondary"
+              },
+              {
+                "value": "third",
+                "label": "Third Color"
+              },
+              {
+                "value": "fourth",
+                "label": "Fourth Color"
+              },
+              {
+                "value": "fifth",
+                "label": "Fifth Color"
+              },
+              {
+                "value": "clear-dark",
+                "label": "Clear Dark"
+              },
+              {
+                "value": "clear-light",
+                "label": "Clear Light"
+              }
+            ],
+            "default": "light"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

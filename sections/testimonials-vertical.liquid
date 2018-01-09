@@ -1,0 +1,229 @@
+<div
+  class="module-wrapper style-{{ section.settings.style }} border"
+  data-section-id="{{ section.id }}"
+  data-section-type="text-columns">
+  <div class="module home-inline vertical-testimonials">
+
+    {% if section.settings.title != blank %}
+      <div class="module-header home-inline-header">
+          <div class="module-title">
+            <h4>{{ section.settings.title | escape }}</h4>
+          </div>
+        {% if section.settings.subtitle != blank %}
+          <div class="module-subtitle">
+            {{ section.settings.subtitle | escape }}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="module-body home-inline-body">
+      <div
+        class="list clearfix">
+
+        {% for block in section.blocks %}
+
+          {% if block.settings.slide_state != 'inactive' %}
+            <div class="list-item {% if block.settings.image != blank %}has-image{% endif %}" {{ block.shopify_attributes }}>
+              {% if block.settings.image != blank %}
+                <div class="left-image-wrapper">
+                  <img class="list-item-icon"
+                    alt="{{ image.alt | escape }}"
+                    src="{{ block.settings.image | img_url: '400x400', crop: 'center' }}">
+                </div>
+              {% else %}
+                <div class="left-image-wrapper">
+                  {{ 'image' | placeholder_svg_tag: 'placeholder-svg home-left-right-image' }}
+                </div>
+              {% endif %}
+
+              <div class="list-text-wrapper">
+                {% if block.settings.text != blank %}
+                  <div class="list-text{% if block.settings.title == blank %} no-margin{% endif %}">
+                    {{  block.settings.text }}
+                  </div>
+                {% endif %}
+
+                {% if block.settings.title != blank %}
+                  <h3 class="testimonial-name">
+                    {{ block.settings.title | escape }}
+                  </h3>
+                {% endif %}
+
+                {% if block.settings.subtitle != blank %}
+                  <h4 class="testimonial-name subtitle">
+                    {{ block.settings.subtitle | escape }}
+                  </h4>
+                {% endif %}
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+    {% if section.settings.button_text != blank and section.settings.button_link != blank %}
+      <div class="cta-button">
+        <a class="button outline {{ section.settings.button_style }}" href="{{ section.settings.button_link }}">
+          {{ section.settings.button_text | escape }}
+        </a>
+      </div>
+    {% endif %}
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Testimonials Vertical",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "select",
+      "id": "style",
+      "label": "Background style",
+      "options": [
+        {
+          "value": "default",
+          "label": "Default"
+        },
+        {
+          "value": "light",
+          "label": "Light"
+        }
+      ],
+      "default": "default"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Text rows with icons"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subheading"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Link"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button Style",
+      "options": [
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "primary",
+          "label": "Primary"
+        },
+        {
+          "value": "secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "third",
+          "label": "Third Color"
+        },
+        {
+          "value": "fourth",
+          "label": "Fourth Color"
+        },
+        {
+          "value": "fifth",
+          "label": "Fifth Color"
+        },
+        {
+          "value": "clear-dark",
+          "label": "Clear Dark"
+        },
+        {
+          "value": "clear-light",
+          "label": "Clear Light"
+        }
+      ],
+      "default": "light"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text_row",
+      "name": "Row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "John Doe"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "Position"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Display up to six features with an option to toggle icons on or off, and add unique calls to action.</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Icon image",
+          "info": "400px x 400px recommended."
+        },
+        {
+          "type": "select",
+          "id": "slide_state",
+          "label": "Active state",
+          "options": [
+            {
+              "value": "active",
+              "label": "Active"
+            },
+            {
+              "value": "inactive",
+              "label": "Inactive"
+            }
+          ],
+          "default": "active"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "category": "Text",
+      "name": "Testimonials Vertical",
+      "settings": {
+        "title": "Testimonials Vertical",
+        "subtitle": "This is the text row"
+      },
+      "blocks": [
+        {
+          "type": "text_row"
+        },
+        {
+          "type": "text_row"
+        },
+        {
+          "type": "text_row"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

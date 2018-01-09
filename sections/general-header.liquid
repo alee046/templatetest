@@ -1,0 +1,292 @@
+{% comment %}
+  Changing `show_search` to `true` enables the Search in the header
+{% endcomment %}
+{% assign show_search = false %}
+{% assign has_cta = false %}
+
+{% comment %}
+  Removed the settings_schema option to change header,
+    - header_navigation_location can be either header, or drawer.
+{% endcomment %}
+{% assign header_navigation_location = 'header' %}
+
+{%- if section.settings.button_text != blank and section.settings.button_link != blank -%}
+  {% assign has_cta = true %}
+  {% assign has_content = true %}
+{%- endif -%}
+
+{%- capture additional_classes -%}
+  header
+
+  {%- if header_navigation_location == 'drawer' -%}
+    collapsed-navigation
+  {%- endif -%}
+
+  {% if section.settings.header_sticky %}
+    sticky-header
+  {% endif %}
+{%- endcapture -%}
+
+{% assign default_logo = section.settings.header_logo %}
+{% assign alternate_logo = section.settings.header_logo_alternate %}
+{% assign menu = section.settings.menu %}
+
+{% include 'product-goal-enabled' %}
+{% if product_goal_enabled %}
+  {% include 'header-goal' %}
+{% endif %}
+
+<div
+  class="{{ additional_classes | strip_newlines }}"
+  {% if section.settings.header_sticky %}
+    data-sticky-header
+  {% endif %}
+  data-main-header="{{ header_navigation_location }}"
+  data-section-id="{{ section.id }}"
+  data-section-type="header">
+  <div class="top-header-wrapper">
+   
+    
+    <div class="top-header {% if customer %}logged-in{% else %}logged-out{% endif %}">
+
+<!-- TrustBox widget - Micro TrustScore -->
+<div class="trustpilot-widget" data-locale="en-US" data-template-id="5419b637fa0340045cd0c936" data-businessunit-id="58f6c7470000ff0005a0c05a" data-style-height="20px" data-style-width="100%" data-theme="light" style="margin-top:2px;">
+<a href="https://www.trustpilot.com/review/omaxhealth.com" target="_blank">Trustpilot</a>
+</div>
+<!-- End TrustBox widget -->
+      
+      
+      <!-- <a class="primary-link top-header-link" href="{{ section.settings.refer_link }}">REFER A FRIEND</a>&nbsp;|&nbsp; -->
+      {% if shop.customer_accounts_enabled %}
+        {% if customer %}
+          <a class="primary-link top-header-link" href="/account" target="_self">MY ACCOUNT</a>&nbsp;|&nbsp;
+          <a class="primary-link top-header-link" href="/account/logout" target="_self">LOG OUT</a>
+        {% else %}
+          <a class="primary-link top-header-link" href="/account/register" target="_self">SIGN UP</a>&nbsp;|&nbsp;
+          <a class="primary-link top-header-link" href="/account/login" target="_self">LOG IN</a>
+        {% endif %}
+      {% endif %}
+
+    </div>
+  </div>
+  <div class="main-header-wrapper">
+    <div class="main-header" role="banner" data-header-content>
+      <div class="branding {% if alternate_logo %}alternate-logo-in-drawer{% else %}regular-logo-in-drawer{% endif %} {% if default_logo %}has-logo{% endif %}">
+        <a class="branding-logo-link" href="/">
+          {% if default_logo %}
+            <img
+              class="branding-logo-image logo-regular"
+              alt="{{ shop.name | escape }}"
+              src="{{ default_logo | img_url: '600x' }}"
+              data-header-logo>
+            {% if alternate_logo %}
+              <img
+                class="branding-logo-image logo-alternate"
+                alt="{{ shop.name | escape }}"
+                src="{{ alternate_logo | img_url: '600x' }}"
+                data-header-logo>
+            {% endif %}
+          {% else %}
+            <h2 class="branding-logo-heading">{{ shop.name }}</h2>
+          {% endif %}
+        </a>
+      </div>
+      {% if show_search %}
+        <div class="header-search-wrapper">
+          <form class="header-search-form" action="/search" method="get">
+            <input class="header-search-input" name="q" type="text" placeholder="{{ 'general.general.search_placeholder' | t }}" value="">
+          </form>
+        </div>
+      {% endif %}
+      <div class="header-tools">
+        {% if header_navigation_location == 'header' %}
+          {%
+            include 'navigation',
+            showArrows: false,
+            navigation_menu: menu
+          %}
+        {% endif %}
+        <div class="header-actions">
+          <div class="header-actions-list">
+            <div class="header-actions-list-item header-currency-switcher currency-switcher coin-container"></div>
+            {% if settings.show-currency-switcher %}
+              <div class="header-actions-list-item header-currency-switcher currency-switcher">
+                {% include "currency-selector" %}
+              </div>
+            {% endif %}
+            {% if show_search %}
+              <a class="header-actions-list-item header-search-toggle icon-search" href="#" data-search-toggle></a>
+            {% endif %}
+            {% if section.settings.show_cart %}
+              <a class="header-actions-list-item icon-cart header-cart-link" href="/cart"  tabindex="0">
+                <span class="header-cart-count {% if cart.item_count > 0 %}active{% endif%}"><div class="count">{{ cart.item_count }}</div></span>
+              </a>
+            {% endif %}
+            <a class="header-actions-list-item drawer-toggle" data-drawer-toggle tabindex="0" href="#">
+              <span class="icon-menu"></span>
+              <span class="icon-cross"></span>
+            </a>
+          </div>
+        </div>
+
+        {% if has_cta %}
+          <a class="button header-button {{ section.settings.button_style }}" href="{{ section.settings.button_link }}">
+            {{ section.settings.button_text | escape }}
+          </a>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+
+  <div class="header-drawer" tabindex="-1" data-header-drawer>
+    {%
+      include 'navigation',
+      showArrows: true,
+      navigation_menu: menu
+    %}
+    <div class="coin-container"></div>
+    {% if settings.show-currency-switcher %}
+      <div class="drawer-currency-switcher currency-switcher">
+        {% include "currency-selector" %}
+      </div>
+    {% endif %}
+    {% if shop.customer_accounts_enabled %}
+      {% if customer %}
+        <nav class="navigation">
+          <ul class="header-navigation-list clearfix">
+            <li class="header-navigation-list-item" tabindex="-1">
+              <a class="header-navigation-link primary-link" href="/account" target="_self">My Account</a>
+            </li>
+            <li class="header-navigation-list-item" tabindex="-1">
+              <a class="header-navigation-link primary-link" href="/account/logout" target="_self">Log Out</a>
+            </li>
+          </ul>
+        </nav>
+      {% else %}
+        <nav class="navigation">
+          <ul class="header-navigation-list clearfix">
+            <li class="header-navigation-list-item" tabindex="-1">
+              <a class="header-navigation-link primary-link" href="/account/login" target="_self">Log In</a>
+            </li>
+          </ul>
+        </nav>
+      {% endif %}
+    {% endif %}
+    {% if section.settings.drawer_social_icons %}
+      <div class="drawer-social-icons">
+        {% assign social_media_accounts = "facebook|twitter|google|pinterest|instagram|vimeo|youtube|rss" | split: "|" %}
+        {% for account in social_media_accounts %}
+          {% capture url %}social_{{account}}_url{% endcapture %}
+          {% if settings[url] != blank %}
+            <a href="{{ settings[url] | escape }}" target="_blank">{{ account | capitalize }}</a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "header_sticky",
+      "label": "Enable fixed header",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cart",
+      "label": "Show cart",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "drawer_social_icons",
+      "label": "Enable social icons in collapsed navigation",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "header_logo",
+      "label": "Logo image",
+      "info": "600px width .png recommended"
+    },
+    {
+      "type": "image_picker",
+      "id": "header_logo_alternate",
+      "label": "Inverted logo image",
+      "info": "600px width .png recommended"
+    },
+    {
+      "type": "url",
+      "id": "refer_link",
+      "label": "Refer a friend link"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "info": "This button is only visible when 'Media type' is set to Image"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Link"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button Style",
+      "options": [
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "primary",
+          "label": "Primary"
+        },
+        {
+          "value": "secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "third",
+          "label": "Third Color"
+        },
+        {
+          "value": "fourth",
+          "label": "Fourth Color"
+        },
+        {
+          "value": "fifth",
+          "label": "Fifth Color"
+        },
+        {
+          "value": "clear-dark",
+          "label": "Clear Dark"
+        },
+        {
+          "value": "clear-light",
+          "label": "Clear Light"
+        }
+      ],
+      "default": "light"
+    }
+  ]
+}
+{% endschema %}

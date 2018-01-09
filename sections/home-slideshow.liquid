@@ -1,0 +1,471 @@
+{% if section.settings.enable and section.blocks.size > 0 %}
+  {% assign image_size = '' %}
+  {% if section.settings.layout == 'full-width' %}
+    {% assign image_size = '2000x900' %}
+  {% elsif section.settings.layout == 'full-window' %}
+    {% assign image_size = '2048x2048' %}
+  {% endif %}
+
+  <div
+    class="home-slideshow-wrapper {{ section.settings.layout }} {{ section.settings.transition }}"
+    {% if section.settings.layout == 'full-window' %}
+      data-full-window-slideshow
+    {% endif %}
+    {% if section.settings.autoplay %}
+      data-slideshow-autoplay
+    {% endif %}
+    data-section-id="{{ section.id }}"
+    data-section-type="slideshow">
+
+    <div class="home-slideshow-loader"></div>
+
+    {% assign count = 0 %}
+
+    {% for block in section.blocks %}
+      {% if block.settings.slide_state != 'inactive' %}
+        {% assign count = count | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+
+    {% if section.blocks.size > 1 and count > 1 %}
+      <a class="home-slideshow-navigation home-slideshow-previous icon icon-angle-left test" href="#" tabindex="0"></a>
+      <a class="home-slideshow-navigation home-slideshow-next icon icon-angle-right" href="#" tabindex="0"></a>
+
+      <div class="home-slideshow-pagination">
+        {% for block in section.blocks %}
+          {% if block.settings.slide_state != 'inactive' %}
+            {%- capture pagination_class -%}
+              pagination-list-item
+              pagination-slide-{{ forloop.index }}
+              {% if forloop.first %}active{% endif %}
+            {%- endcapture %}
+            <span
+              data-slide-id="home-slide-{{ forloop.index }}"
+              class="{{ pagination_class | strip_newlines }}">
+              <span></span>
+            </span>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <div class="home-slideshow" data-slideshow-content>
+      {% for block in section.blocks %}
+        {% assign slide_image = block.settings.image | img_url: image_size %}
+        {% capture current %}{% cycle 1, 2 %}{% endcapture %}
+
+        {% assign has_content = true %}
+        {% assign onboarding = false %}
+        {% if
+          block.settings.title == blank and
+          block.settings.subtitle == blank and
+          block.settings.button_text == blank and
+          block.settings.button == blank %}
+          {% assign has_content = false %}
+          {% assign onboarding = true %}
+        {% endif %}
+
+        {% unless block.settings.image %}
+          {% assign placeholder_image_style = 'lifestyle-' | append: current %}
+          {%- capture slide_image -%}
+            {%-
+              include 'placeholder_svg_uri',
+              placeholder: placeholder_image_style
+            -%}
+          {%- endcapture -%}
+        {% endunless %}
+
+        {%- capture block_class -%}
+          home-slide
+          home-slide-{{ forloop.index }}
+          {% if forloop.first %}active{% endif %}
+          text-aligned-{{ block.settings.alignment }}
+          overlay
+          overlay-{{ block.settings.overlay_style }}
+          overlay-opacity-{{ block.settings.overlay_opacity }}
+        {%- endcapture %}
+        {% if block.settings.slide_state != 'inactive' %}
+          <div
+            id="home-slide-{{ forloop.index }}"
+            class="{{ block_class | strip_newlines }}"
+            {% if section.settings.slideshow-layout == 'full-window' %}
+              style="background-image: url('{{ slide_image }}');"
+            {% endif %}
+            data-slide-text="{{ block.settings.text_style }}"
+            data-slide="{{ forloop.index }}"
+            {{ block.shopify_attributes }}>
+
+            <div
+              class="slide-image-container"
+              style="background-image:url('{{ slide_image }}')" {% if block.settings.specialsale != blank %} id="{{block.settings.specialsale}}-image" {% endif %}>
+
+              {% if block.settings.url != blank and block.settings.image %}
+                <a class="slide-image-link" href="{{ block.settings.url }}">
+              {% endif %}
+
+              {% if block.settings.image %}
+                <img
+                  class="slide-image"
+                  alt="{{ block.settings.image.alt | escape }}"
+                  src="{{ slide_image }}">
+              {% else %}
+                {{ placeholder_image_style | placeholder_svg_tag: 'placeholder-svg slide-image' }}
+              {% endif %}
+
+              {% if block.settings.url != blank and block.settings.image %}
+                </a>
+              {% endif %}
+            </div>
+
+            {% if block.settings.button_text == blank and block.settings.url != blank %}
+              <a class="slide-image-link" href="{{ block.settings.url }}">
+            {% endif %}
+            <div class="slide-text-wrapper" {% if block.settings.specialsale != blank %} id="{{block.settings.specialsale}}" {% endif %}>
+              {% if has_content %}
+                <div class="slide-text {% if block.settings.text_style == 'light' %} transparent-background-wrapper {% elsif block.settings.text_style == 'dark' %} white-background-wrapper {% endif %} {{ block.settings.text_style }}">
+                  {% if block.settings.specialsale == 'black-friday' and block.settings.specialsale != blank %}
+                    <div class="limited-badge">
+                      <p>Limited Time Only!</p>
+                    </div>
+                  {% endif %}
+                  
+                  {% if block.settings.title != blank %}
+                    <h1 class="module-title-large">{{ block.settings.title | escape }}</h1>
+                  {% endif %}
+
+                  {% if block.settings.subtitle != blank %}
+                    <p>{{ block.settings.subtitle | escape }}</p>
+                  {% endif %}
+                  
+                  
+                  {% if block.settings.priceoff != blank %}
+                    <p>{{ block.settings.priceoff | escape }}<sup>*</sup></p>
+                  {% endif %}
+
+                  {% if block.settings.priceoff-subheading != blank %}
+                    <p>{{ block.settings.priceoff-subheading | escape }}</p>
+                  {% endif %}
+                  
+
+                  {% if block.settings.button_text != blank and block.settings.url != blank %}
+                    <a class="button outline {{ block.settings.button_style }}" href="{{ block.settings.url }}">
+                      {{ block.settings.button_text | escape }}
+                    </a>
+                  {% endif %}
+
+                  {% if block.settings.smallprint != blank %}
+                    <p class="small-print">{{ block.settings.smallprint | escape }}</p>
+                  {% endif %}
+
+                </div>
+              {% endif %}
+            </div>
+
+            {% if block.settings.button_text == blank and block.settings.url != blank %}
+              </a>
+            {% endif %}
+
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Slideshow",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable",
+      "label": "Enable",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "full-width",
+          "label": "Full width"
+        },
+        {
+          "value": "full-window",
+          "label": "Full window"
+        }
+      ],
+      "default": "full-width",
+      "info": "[Style examples](https:\/\/www.pixelunion.net\/wp-content\/uploads\/2015\/11\/slideshowLayouts.png)"
+    },
+    {
+      "type": "select",
+      "id": "transition",
+      "label": "Transition",
+      "options": [
+        {
+          "value": "transition-slide",
+          "label": "Slide"
+        },
+        {
+          "value": "transition-fade",
+          "label": "Fade"
+        }
+      ],
+      "default": "transition-fade"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Auto rotate between slides",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "select",
+          "id": "alignment",
+          "label": "Text alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "label": "Text style",
+          "options": [
+            {
+              "value": "light",
+              "label": "Light"
+            },
+            {
+              "value": "dark",
+              "label": "Dark"
+            }
+          ],
+          "default": "light"
+        },
+        {
+          "type": "select",
+          "id": "slide_state",
+          "label": "Slide state",
+          "options": [
+            {
+              "value": "active",
+              "label": "Active"
+            },
+            {
+              "value": "inactive",
+              "label": "Inactive"
+            }
+          ],
+          "default": "active"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "2000x900 jpg recommended."
+        },
+        {
+          "type": "select",
+          "id": "overlay_style",
+          "label": "Overlay",
+          "options": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "gradient",
+              "label": "Gradient"
+            },
+            {
+              "value": "primary",
+              "label": "Primary color"
+            },
+            {
+              "value": "secondary",
+              "label": "Secondary color"
+            },
+            {
+              "value": "black",
+              "label": "Black"
+            }
+          ],
+          "default": "gradient"
+        },
+        {
+          "type": "select",
+          "id": "overlay_opacity",
+          "label": "Overlay opacity",
+          "options": [
+            {
+              "value": "1",
+              "label": "10%"
+            },
+            {
+              "value": "2",
+              "label": "20%"
+            },
+            {
+              "value": "3",
+              "label": "30%"
+            },
+            {
+              "value": "4",
+              "label": "40%"
+            },
+            {
+              "value": "5",
+              "label": "50%"
+            },
+            {
+              "value": "6",
+              "label": "60%"
+            },
+            {
+              "value": "7",
+              "label": "70%"
+            },
+            {
+              "value": "8",
+              "label": "80%"
+            },
+            {
+              "value": "9",
+              "label": "90%"
+            }
+          ],
+          "default": "7"
+        },
+        {
+          "type": "text",
+          "id": "specialsale",
+          "label": "Special Sale ID"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Slideshow"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subheading",
+          "default": "Introduce customers to your shop with lifestyle imagery and product photography."
+        },
+        {
+          "type": "text",
+          "id": "priceoff",
+          "label": "Price Off"
+        },
+        {
+          "type": "text",
+          "id": "priceoff-subheading",
+          "label": "Price Off Subheading"
+        },
+        {
+          "type": "text",
+          "id": "smallprint",
+          "label": "Small Print"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button text"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "button_style",
+          "label": "Button Style",
+          "options": [
+            {
+              "value": "light",
+              "label": "Light"
+            },
+            {
+              "value": "primary",
+              "label": "Primary"
+            },
+            {
+              "value": "secondary",
+              "label": "Secondary"
+            },
+            {
+              "value": "third",
+              "label": "Third Color"
+            },
+            {
+              "value": "fourth",
+              "label": "Fourth Color"
+            },
+            {
+              "value": "fifth",
+              "label": "Fifth Color"
+            },
+            {
+              "value": "sale-red-color",
+              "label": "Sale Red Color"
+            },
+            {
+              "value": "clear-dark",
+              "label": "Clear Dark"
+            },
+            {
+              "value": "clear-light",
+              "label": "Clear Light"
+            }
+          ],
+          "default": "light"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "slide",
+        "settings": {
+          "title": "Slideshow",
+          "subtitle": "Introduce customers to your shop with lifestyle imagery and product photography."
+        }
+      },
+      {
+        "type": "slide",
+        "settings": {
+          "title": "Slideshow",
+          "subtitle": "Introduce customers to your shop with lifestyle imagery and product photography."
+        }
+      }
+    ]
+  }
+}
+
+{% endschema %}

@@ -1,0 +1,381 @@
+{% assign media_layout = block.settings.media_layout %}
+
+{% if block.settings.video_url != blank %}
+  {% assign block.settings.video_url = true %}
+{% endif %}
+
+<div
+  class="module-wrapper style-{{ section.settings.style }} border"
+  data-section-id="{{ section.id }}"
+  data-section-type="images-with-video">
+  <div class="module product-details-slideshow">
+
+    {% if section.settings.title != blank or section.settings.subtitle != blank %}
+      <div class="module-header product-details-slideshow-header">
+        {% if section.settings.title != blank %}
+          <h3 class="module-title">{{ section.settings.title | escape }}</h3>
+        {% endif %}
+        {% if section.settings.subtitle != blank %}
+          <p class="module-subtitle">{{ section.settings.subtitle | escape }}</p>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="module-body">
+      <div class="product-details-slideshow-list-container">
+        <ul class="product-details-slideshow-list align-{{ section.settings.alignment }} clearfix">
+          {% for block in section.blocks %}
+            <li
+              class="product-details-slideshow-list-item {% if forloop.first %}active{% endif %}"
+              data-position="{{ forloop.index }}"
+              {{ block.shopify_attributes }}>
+              {% if block.settings.media_layout == 'none' or block.settings.media_layout == 'image-highlight' %}
+                <div class="image-wrapper mobile-only">
+                  {% if block.settings.image %}
+                    <img
+                      class="product-details-slideshow-image"
+                      src="{{ block.settings.image | img_url: '1600x' }}"
+                      alt="{{ block.settings.image.alt | escape }}">
+                  {% else %}
+                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg product-details-slideshow-image' }}
+                  {% endif %}
+                </div>
+              {% endif %}
+              <div class="product-details-slideshow-list-item-container clearfix">
+                <div class="product-details-slideshow-content">
+                  <div class="text-content-wrapper">
+
+                    {% if block.settings.top_title != blank %}
+                      <h3 class="module-title module-top-title home-left-right-titles green-text">
+                        {{ block.settings.top_title | escape }}
+                      </h3>
+                    {% endif %}
+
+                    {% if block.settings.title != blank %}
+                      <h4 class="module-title product-details-slideshow-title">
+                        {{ block.settings.title | escape }}
+                      </h4>
+                    {% endif %}
+
+                    {% if block.settings.text != blank %}
+                      <div class="module-content product-details-slideshow-text">
+                        {{ block.settings.text }}
+                      </div>
+                    {% endif %}
+
+                    {% if block.settings.button_link != blank and block.settings.button_text != blank %}
+                      <div class="module-cta">
+                        <a class="button {{ block.settings.button_style }}" href="{{ block.settings.button_link }}">
+                          {{ block.settings.button_text | escape }}
+                        </a>
+                      </div>
+                    {% endif %}
+
+                    <div class="product-details-slideshow-nav-container">
+                      <ul class="product-details-slideshow-nav-list">
+                        {% for i in section.blocks %}
+                          <li>
+                            <a
+                              href="#"
+                              class="product-details-slideshow-nav-list-item {% if forloop.first %}active{% endif %}"
+                              data-position="{{ forloop.index }}"
+                              tabindex="0">
+                            </a>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="product-details-slideshow-image-container">
+                  {% if block.settings.media_layout == 'none' or block.settings.media_layout == 'image-highlight' %}
+                    <div class="image-wrapper desktop-only">
+                      {% if block.settings.image %}
+                        <img
+                          class="product-details-slideshow-image"
+                          src="{{ block.settings.image | img_url: '1600x' }}"
+                          alt="{{ block.settings.image.alt | escape }}">
+                      {% else %}
+                        {{ 'image' | placeholder_svg_tag: 'placeholder-svg product-details-slideshow-image' }}
+                      {% endif %}
+                    </div>
+                  {% endif %}
+
+                  {% if block.settings.media_layout == 'video-highlight' %}
+                    <div
+                      class="video-wrapper {% if block.settings.image == blank %}no-image{% endif %}"
+                      data-video-wrapper
+                      {% if block.settings.image != blank %}
+                        style="background-image:url('{{ block.settings.image | img_url: '1440x800' }}')"
+                      {% endif %}
+                      >
+                      <div class="video-wrapper-overlay" data-video-overlay>
+                        <div class="video-wrapper-text-container">
+                          <a class="video-wrapper-button" data-overlay-play>
+                            <span class="video-wrapper-triangle"></span>
+                          </a>
+                        </div>
+                      </div>
+
+                      <div class="full-width-video {{ block.settings.media_layout }}">
+                        {% if block.settings.video_url != blank %}
+                          {%- capture video_code %}
+                            {% if block.settings.video_url.type == "youtube" %}
+                              <iframe src="//www.youtube.com/embed/{{ block.settings.video_url.id }}?rel=0&showinfo=0&vq=720" width="850" height="480" frameborder="0" allowfullscreen></iframe>
+                            {% endif %}
+                            {% if block.settings.video_url.type == "vimeo" %}
+                              <iframe src="//player.vimeo.com/video/{{ block.settings.video_url.id }}?byline=0&portrait=0&badge=0" width="850" height="480" frameborder="0" allowfullscreen></iframe>
+                            {% endif %}
+                          {%- endcapture %}
+                        {% else %}
+                          {%- capture video_code %}
+                            <iframe
+                              src="//www.youtube.com/embed/_9VUPq3SxOc?rel=0"
+                              width="850"
+                              height="480"
+                              frameborder="0"></iframe>
+                          {%- endcapture %}
+                        {% endif %}
+                        {% include 'video-embed', video: video_code %}
+                      </div>
+                    </div>
+                  {% endif %}
+                </div>
+                {% if section.settings.arrows == 'show' %}
+                <div class="product-details-slideshow-prev-item slideshow-simple-nav icon icon-angle-left"></div>
+                <div class="product-details-slideshow-next-item slideshow-simple-nav icon icon-angle-right"></div>
+                {% endif %}
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Images with text",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "select",
+      "id": "arrows",
+      "label": "Show slider arrows",
+      "options": [
+        {
+          "value": "show",
+          "label": "Show"
+        },
+        {
+          "value": "hide",
+          "label": "Hide"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "style",
+      "label": "Background style",
+      "options": [
+        {
+          "value": "default",
+          "label": "Default"
+        },
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "color",
+          "label": "Color"
+        },
+        {
+          "value": "gradient",
+          "label": "Gradient"
+        },
+        {
+          "value": "secondary-color",
+          "label": "Secondary Color"
+        },
+        {
+          "value": "third-color",
+          "label": "Third Color"
+        },
+        {
+          "value": "fourth-color",
+          "label": "Fourth Color"
+        },
+        {
+          "value": "fifth-color",
+          "label": "Fifth Color"
+        }
+      ],
+      "default": "default"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subheading"
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "select",
+          "id": "media_layout",
+          "label": "Media type",
+          "options": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "image-highlight",
+              "label": "Image"
+            },
+            {
+              "value": "video-highlight",
+              "label": "Video"
+            }
+          ],
+          "default": "none"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "1600px width .png recommended"
+        },
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "label": "Youtube or Vimeo link",
+          "accept": ["youtube", "vimeo"]
+        },
+        {
+          "type": "text",
+          "id": "top_title",
+          "label": "Top Small Heading",
+          "default": "Top title here"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Images with text"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Say a bit about your brand, a specific product, or promotion.</p>"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button text"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "button_style",
+          "label": "Button Style",
+          "options": [
+            {
+              "value": "light",
+              "label": "Light"
+            },
+            {
+              "value": "primary",
+              "label": "Primary"
+            },
+            {
+              "value": "secondary",
+              "label": "Secondary"
+            },
+            {
+              "value": "third",
+              "label": "Third Color"
+            },
+            {
+              "value": "fourth",
+              "label": "Fourth Color"
+            },
+            {
+              "value": "fifth",
+              "label": "Fifth Color"
+            },
+            {
+              "value": "clear-dark",
+              "label": "Clear Dark"
+            },
+            {
+              "value": "clear-light",
+              "label": "Clear Light"
+            }
+          ],
+          "default": "light"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "category": "Image",
+      "name": "Images with text",
+      "blocks": [
+        {
+          "type": "image",
+          "settings": {
+            "text": "<p>Say a bit about your brand, a specific product, or promotion.</p>"
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "text": "<p>Display up to four images, each with their own unique heading and text.</p>"
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "text": "<p>Offer customers a wealth of information while conserving valuable vertical space on your homepage.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

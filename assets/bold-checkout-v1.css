@@ -1,0 +1,64 @@
+h3 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+p {
+    font-size: 16px;
+}
+
+h5 {
+    font-size: 18px;
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: 700;
+}
+
+.field label {
+    font-size: 16px;
+}
+
+.field input,
+.field select {
+    font-size: 16px;
+    color: #333333;
+}
+
+.field input::placeholder,
+.field select::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+.btn {
+    font-size: 16px;
+    border-radius: 0;
+    background-color: #239fa6;
+    padding: 12px 30px;
+    color: white !important;
+}
+
+.btn:hover {
+    background-color: #207f7d;
+}
+
+.total-line,
+span {
+    font-size: 16px;
+    color: #333333;
+}
+
+.order-summary .payment-due-container .payment-due__price {
+    font-weight: 500;
+    color: black;
+}
+
+.product__info__name,
+.product__info__frequency {
+    float: left;
+}
+
+.product__price {
+    float: right;
+    margin-top: 0 !important;
+}

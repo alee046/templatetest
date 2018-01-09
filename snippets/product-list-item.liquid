@@ -1,0 +1,175 @@
+{% assign item = product %}
+{% if template contains 'search' %}
+  {% assign item = item %}
+{% elsif template contains 'product' %}
+  {% assign item = prod %}
+{% endif %}
+
+{% assign not_index = true %}
+{% if template contains 'index' %}
+  {% assign not_index = false %}
+{% endif %}
+
+{% if section.settings.stock_overlay_show and item.available and not_index %}
+  {% assign total = 0 %}
+  {% assign threshold = section.settings.stock_overlay_threshold | escape | times: 1 %}
+  {% assign infinity = false %}
+  {% for variant in item.variants %}
+    {% if variant.inventory_management == null %}
+      {% assign infinity = true %}
+    {% elsif variant.inventory_management == '' %}
+      {% assign infinity = true %}
+    {% elsif infinity == false %}
+      {% capture temp %}{{ total | plus: variant.inventory_quantity }}{% endcapture %}
+      {% assign total = temp | times: 1 %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% assign item_url = item.url | within: collection %}
+{% if onboarding %}
+  {% assign item_url = "#" %}
+{% endif %}
+
+{% capture productGoalDeliveryDate %}{{ settings.product_sale_goal_estimated_delivery_date | trim | ecape }}{% endcapture %}
+
+{% assign add_to_cart_button = 'products.product.add_to_cart' | t %}
+{% if product.handle == settings.featured-product-main and settings.product-sale-goal-use %}
+  {%- capture add_to_cart_button -%}
+    {%- if settings.product_sale_goal_button != blank -%}
+      {{ settings.product_sale_goal_button | escape }}
+    {%- else -%}
+      {{ "home.goal.pre_order" | t }}
+    {%- endif -%}
+  {%- endcapture -%}
+{% endif %}
+
+{% assign form_id = product.id %}
+
+<div class="list-item" id="product-list-item-{{ item.id }}">
+  <a class="list-container" href="{{ item_url }}">
+    <div class="list-image-wrapper">
+      {% unless onboarding %}
+        <img
+          class="list-image"
+          src="{{ item.featured_image.src | product_img_url: '600x600' }}"
+          alt="{{ item.title }}" >
+
+        {% unless excludeCover %}
+          <div
+            class="list-cover"
+            style="background-image: url({{ item.featured_image.src | product_img_url: '600x600' }})"></div>
+        {% endunless %}
+      {% else %}
+        {{ onboarding_image }}
+      {% endunless %}
+
+      {% if section.settings.stock_overlay_show and item.available and infinity == false and total < threshold and total > 0 %}
+        <div class="stock-badge">
+          {{ 'products.product.stock_level' | t: stock_count: total }}
+        </div>
+      {% endif %}
+
+      {% if item.compare_at_price_min > item.price_min and item.available %}
+        <div class="sale-badge">
+          {{ 'products.product.sale' | t }}
+        </div>
+      {% endif %}
+
+    </div>
+    <div class="list-text-wrapper is-product-list">
+      <div class="product-list-title">
+        {% unless onboarding %}
+          {{ item.title }}
+        {% else %}
+          {{ onboarding_title }}
+        {% endunless %}
+      </div>
+
+      <div class="list-meta">
+        {% if onboarding %}
+          {{ onboarding_price | money }}
+        {% elsif item.available %}
+          {% if item.price_varies %}
+            <span class="price">
+              <!-- {% if item.price_varies %}{{ 'products.product.from' | t }}{% endif %} --> <span class="money">{{ item.price_min | money }}</span>
+            </span>
+          {% else %}
+            <span class="price">
+              <span class="money">{{ item.price_min | money }}</span>
+              {% unless item.compare_at_price_min <= item.price_min %}
+                <span class="original money">
+                  {% if item.compare_at_price_min > item.price_min %}
+                    {{ item.compare_at_price_min | money }}
+                  {% endif %}
+                </span>
+                <!-- span class="saving">
+                  {% if item.compare_at_price > item.price %}
+                    {{ "products.product.saving" | t }}
+                      <span class="saving-result money">
+                      {{ item.compare_at_price_min | minus: item.price | money }}
+                      </span -->
+                  {% endif %}
+                </span>
+              {% endunless %}
+            </span>
+          {% endif %}
+        {% else %}
+          {{ 'products.product.sold_out' | t }}
+        {% endif %}
+      </div>
+    </div>
+  </a>
+  <form
+    class="product-form less-margin"
+    id="product-form-{{ form_id }}"
+    action="/cart/add"
+    method="post"
+    data-product-form="{{ form_id }}">
+    <input
+      class="product-select"
+      name="id"
+      value="{{ product.variants[0].id }}"
+      type="hidden"
+      data-variant-title="{{ product.variants[0].title }}" />
+    <div class="add-to-cart">
+      {% if product.available %}
+        <div class="product-form-submit-wrap">
+          <input class="button outline add-to-cart-button black-outline uppercase {{ bold_add_to_cart_class }}" id="AddToCart" type="submit" value="{{ add_to_cart_button | strip_newlines | strip_html | strip }}" />
+          <!-- bold-ro-liquid -->
+          <div class="bold_add_to_orders" style="display: inline-block;"> </div>
+          <!-- bold-ro-liquid -->
+
+          <div class="add-to-cart-loader"></div>
+        </div>
+        <div class="product-cart-message" data-product-message></div>
+      {% else %}
+        <input type="submit" class="button outline disabled" disabled="disabled" value="{{ 'products.product.sold_out' | t }}" />
+      {% endif %}
+    </div>
+    <div class="subscribe-and-save">
+      {% for tag in product.tags %}
+        {% if tag contains 'subscribe-and-save' %}
+          <a href="{{ item_url }}">Subscribe &amp; Save!</p>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </form>
+</div>
+
+<script type="application/json" data-product-settings-{{ form_id }}>
+  {
+    "addToCartText": {{ add_to_cart_button | strip_newlines | strip_html | strip | json }},
+    "disableAjaxAddProduct": {{ section.settings.disable_ajax_add_product }},
+    "enableHistory": true,
+    "imageZoom": {{ section.settings.enable_zoom }},
+    "linkedOptions": true,
+    "processingText": {{ 'products.product.processing' | t | json }},
+    "setQuantityText": {{ 'products.product.set_quantity' | t | json }},
+    "soldOutText": {{ 'products.product.sold_out' | t | json }},
+    "successMessage": {{ 'products.product.success_html' | t: cart_link: cart_link, continue_link: continue_link, checkout_link: checkout_link | json }},
+    "unavailableText": {{ 'products.product.unavailable' | t | json }}
+  }
+</script>
+
+<script type="application/json" data-product-json-{{ form_id }}>{% include 'bold-product' | output: 'json' %} </script>

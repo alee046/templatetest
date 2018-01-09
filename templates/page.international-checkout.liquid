@@ -1,0 +1,129 @@
+{% include 'bold-cart' %}
+<div class="module-wrapper">
+  <div class="module module-default-page">
+  	<div style=" width:100%;height:500px; text-align:center; " align="center" id="loading">Loading......</div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/3.5.3/iframeResizer.min.js"></script>
+<iframe name="icIframe" id="icIframe" src="" style="display:none;width:100%;" frameborder="0" scrolling="no">Your Browser Does Not Support Frames</iframe>
+<!-- Ic form to build store's cart content
+============================================= -->
+<form name="icForm" id="icForm" method="post" action="https://www.internationalcheckout.com/cart.php" target="icIframe">
+  
+{% if cart %}
+  {% assign bold_cart = cart %}
+  {% assign bold_item_list = bold_cart.items %}  
+{% endif %}    
+  
+    {% for item in cart.items %}      
+    {% include 'bold-cart-item' with item %}             
+  
+      {% if item.properties.frequency_num %}  
+      <input type="hidden" class="recurring_item" name="recurring_item" id="recurring_item" value="1" />  
+      {% endif %}  
+  
+  
+	{% if item.title contains 'Gift Card' %}
+		<input id="giftCard" name="giftCard" class="giftCard" type="hidden" value="1" />
+	{% endif %}
+
+	{% if item.product.description !=  empty %}
+		<input type="hidden" class="ItemDescription" id="ItemDescription{{ forloop.index }}" name='ItemDescription{{ forloop.index }}' value="{{ item.title | replace: '"', '&acute;&acute;' | escape}} 
+			{% if item.properties.frequency_type and item.properties.frequency_num and item.properties.frequency_type_text  %}
+				Every 
+				{{ item.properties.frequency_num}}
+                {{ item.properties.frequency_type_text }}
+				{% if item.properties.discounted_price %}
+                    {% assign bold_item_price = bold_item.price %}
+					{{ bold_item_price | money }} each                                                                                                                                              
+				{% endif %}                                                                                                                                              
+			{% endif %}
+			" />
+	{% else %}
+		<input type="hidden" class="ItemDescription" id="ItemDescription{{ forloop.index }}" name='ItemDescription{{ forloop.index }}' value="{{ item.title | replace: '"', '&acute;&acute;' | escape }}" />
+	{% endif %}
+	<input type="hidden" name="ItemImage{{ forloop.index }}" class="ItemImage" value='https:{{ item | img_url: 'compact' }}' />
+	<input type="hidden" name="ItemQuantity{{ forloop.index }}" value="{{ item.quantity }}" />
+	<input type="hidden" name="ItemPrice{{ forloop.index }}" value='{{ item.price | money | strip_html | replace: "$", "" }}' />
+  
+	<!--<input type="hidden" name="ItemSize{{ forloop.index }}" value='{{item.variant.title | remove: ' / Default' | remove: 'Default' }}' />-->
+<!--  
+<input type="hidden" name="ItemColor{{ forloop.index }}" value='{{item.variant.option1 | remove: ' / Default' | remove: 'Default' | remove: 'Title' }}' />
+<input type="hidden" name="ItemSize{{ forloop.index }}" value='{{item.variant.option2 | remove: ' / Default' | remove: 'Default' | remove: 'Title' }}' />
+-->  
+  
+	<input type="hidden" name="ItemSKU{{ forloop.index }}" value='{{item.variant.sku }}' />
+  
+  <input type="hidden" name="ImgHeight{{ forloop.index }}" value="80" />  
+  <input type="hidden" name="ImgWidth{{ forloop.index }}" value="80" />    
+  
+
+    {% endfor %}
+
+
+	<!-- Replace 'test' with your store's p value
+	============================================= -->
+        <input type="hidden" name="p" value="omax" />
+        
+        <input type="hidden" name="shipping_method" id="shipping_method" value="" />
+        
+	<!-- For Flat Rate Shipping charges, add the amount in 'value' attribute
+	============================================= -->
+        <input type="hidden" name="external_domesticshipping" id="external_domesticshipping" value="" />
+       
+  
+</form>
+
+
+<!-- Set a status in the case of empty cart 
+============================================= -->
+{% if cart.item_count == 0 %}
+        <input type="hidden" id="cartStatus" value="1" />
+{% endif %}
+
+
+<!-- Display link back to home page in the case of empty cart 
+============================================= -->
+<p id="noItem" style="display: none;height: 400px;text-align: center;padding: 50px;" >Your shopping cart is empty. <a href="/" >Continue Shopping</a></p>
+
+
+<!-- Load jQuery to perform Javascript functionality
+============================================= -->
+
+<script type="text/javascript">
+
+jQuery(document).ready( function() {
+	 
+	if(document.getElementById('cartStatus')){
+		document.getElementById('noItem').style.display = '';
+		jQuery("#loading").css("display","none"); 
+	 }else if(jQuery(".giftCard") && jQuery(".giftCard").val() == '1'){
+        	alert('Gift Certificate is not available for international orders. Please remove Gift Certificate from shopping cart before proceeding with International Checkout.'); 
+        	window.location.href = '/cart'; 
+     }else if(jQuery(".recurring_item") && jQuery(".recurring_item").val() == '1'){
+        	alert('Subscriptions are not allowed for International Orders. Please remove this selection in order to proceed.'); 
+        	window.location.href = '/cart';      
+     }else{
+		document.getElementById('icIframe').src = "https://www.internationalcheckout.com/cart.php";
+		document.getElementById( 'icForm' ).submit();
+		// Load Ic iframe page
+
+		jQuery('#icIframe').load(function() {
+
+			jQuery("#icForm").remove();// Remove Ic for for security
+			jQuery("#loading").css("display","none");// Don't display the loading text now as Ic iframe has been loaded now.
+
+			jQuery('html, body').animate({
+				//scrollTop: jQuery("#footer").offset().top
+			}, 1000);
+			jQuery('#icIframe').fadeIn();	               
+
+		});
+
+		iFrameResize({
+			checkOrigin		: false,
+			enablePublicMethods     : true,                  // Enable methods within iframe hosted page
+		});          	
+	}
+});	
+</script>    
+  </div>
+</div>

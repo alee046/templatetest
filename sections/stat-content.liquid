@@ -1,0 +1,147 @@
+<div
+  class="module-wrapper style-{{ section.settings.style }} stat-content"
+  data-section-id="{{ section.id }}"
+  data-section-type="stat-content">
+  <div class="module home-inline">
+
+    {% if section.settings.title != blank %}
+      <div class="module-header home-inline-header">
+          <div class="module-title">
+            <h3>{{ section.settings.title | escape }}</h3>
+          </div>
+        {% if section.settings.subtitle != blank %}
+          <div class="module-subtitle">
+            {{ section.settings.subtitle | escape }}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="module-body home-inline-body">
+      <div class="list column-2 clearfix">
+        <div class="list-item">
+
+          <div class="list-stat-wrapper">
+            {% if section.settings.columntitle1 != blank %}
+              <div class="list-title">
+                {{ section.settings.columntitle1 | escape }}
+                {% if section.settings.columnunit1 != blank %}
+                  <div class="list-title-unit">
+                    {{ section.settings.columnunit1 | escape }}
+                  </div>
+                {% endif %}
+              </div>
+            {% endif %}
+
+            {% if section.settings.text1 != blank %}
+              <div class="list-text{% if section.settings.title == blank %} no-margin{% endif %}">
+                {{  section.settings.text1 }}
+              </div>
+            {% endif %}
+          </div>
+
+        </div>
+
+        <div class="list-item">
+
+          <div class="list-stat-wrapper">
+            {% if section.settings.columntitle2 != blank %}
+              <div class="list-title">
+                {{ section.settings.columntitle2 | escape }}
+                {% if section.settings.columnunit2 != blank %}
+                  <div class="list-title-unit">
+                    {{ section.settings.columnunit2 | escape }}
+                  </div>
+                {% endif %}
+              </div>
+            {% endif %}
+            {% if section.settings.text2 != blank %}
+              <div class="list-text{% if section.settings.title == blank %} no-margin{% endif %}">
+                {{  section.settings.text2 }}
+              </div>
+            {% endif %}
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Stat Content",
+  "settings": [
+    {
+      "type": "select",
+      "id": "style",
+      "label": "Background style",
+      "options": [
+        {
+          "value": "default",
+          "label": "Default"
+        },
+        {
+          "value": "light",
+          "label": "Light"
+        }
+      ],
+      "default": "default"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Text columns with icons"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subheading"
+    },
+    {
+      "type": "text",
+      "id": "columntitle1",
+      "label": "Column Heading 1",
+      "default": "Feature title"
+    },
+    {
+      "type": "text",
+      "id": "columnunit1",
+      "label": "Column Unit 1",
+      "default": "X"
+    },
+    {
+      "type": "richtext",
+      "id": "text1",
+      "label": "Text 1",
+      "default": "<p>Display up to six features with an option to toggle icons on or off, and add unique calls to action.</p>"
+    },
+    {
+      "type": "text",
+      "id": "columntitle2",
+      "label": "Column Heading 2",
+      "default": "Feature title"
+    },
+    {
+      "type": "text",
+      "id": "columnunit2",
+      "label": "Column Unit 2",
+      "default": "%"
+    },
+    {
+      "type": "richtext",
+      "id": "text2",
+      "label": "Text 2",
+      "default": "<p>Display up to six features with an option to toggle icons on or off, and add unique calls to action.</p>"
+    }
+  ],
+  "presets": [
+    {
+      "category": "Text",
+      "name": "Stat content"
+    }
+  ]
+}
+{% endschema %}

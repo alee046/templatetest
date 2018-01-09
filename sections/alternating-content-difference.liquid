@@ -1,0 +1,403 @@
+<div
+  data-section-id="{{ section.id }}"
+  data-section-type="alternating-content"
+  class="alternating-content-background-wrapper">
+
+  {% if section.settings.title != blank %}
+    <div class="module-header module-header-top-margin">
+        <div class="module-title">
+          <h3>{{ section.settings.title | escape }}</h3>
+        </div>
+    </div>
+  {% endif %}
+
+  {% for block in section.blocks %}
+    {% capture direction %}{% cycle 'left', 'right' %}{% endcapture %}
+
+    {%- assign feature_image = block.settings.image -%}
+
+    {% assign has_button = false %}
+    {% if block.settings.button_link != blank and block.settings.button_text != blank %}
+      {% assign has_button = true %}
+    {% endif %}
+
+    <div
+      class="module-wrapper style-{{ block.settings.style }} border {% if block.settings.image_type == 'background_image' %}has-background-image{% endif %}{% if block.settings.image_type == 'feature_image' %} has-feature-image{% endif %} background-{{ direction }}"
+      {{ block.shopify_attributes }}
+      {% if block.type == 'image' %}
+        {% if feature_image != blank and block.settings.image_type == 'background_image' %}
+          style="background-image: url('{{ feature_image | img_url: '2000x'}}')"
+        {% endif %}
+      {% endif %}>
+      {% if feature_image != blank and block.type != 'video' %}
+        <div
+          class="mobile-only"
+          {% if feature_image != blank and block.settings.image_type == 'background_image' %}
+            style="background-image: url('{{ feature_image | img_url: '2000x'}}'); background-size: cover;"
+          {% elsif feature_image != blank and block.settings.image_type == 'feature_image' %}
+            style="background-image: url('{{ feature_image | img_url: '2000x'}}'); background-size: contain;"
+          {% endif %}>
+        </div>
+      {% endif %}
+
+      <div class="module home-left-right-features">
+        <div class="module-body">
+          <div class="home-left-right-feature clearfix media-aligned-{{ direction }}">
+            <div class="home-left-right-section home-left-right-text {{ alignment }}">
+              <div class="text-content-wrapper">
+                {% if block.settings.icon != blank %}
+                  <div class="list-image-wrapper">
+                    <img class="list-item-icon"
+                      alt="{{ icon.alt | escape }}"
+                      src="{{ block.settings.icon | img_url: '120x120', crop: 'center' }}">
+                  </div>
+                {% endif %}
+
+                {% if block.settings.top_title != blank %}
+                  <h3 class="module-title module-top-title home-left-right-titles">
+                    {{ block.settings.top_title | escape }}
+                  </h3>
+                {% endif %}
+
+                {% if block.settings.title != blank %}
+                  <h3 class="module-title home-left-right-titles">
+                    {{ block.settings.title | escape }}
+                  </h3>
+                {% endif %}
+
+                {% if block.settings.text != blank %}
+                  <div class="module-content home-left-right-content">
+                    {{ block.settings.text }}
+                  </div>
+                {% endif %}
+
+                {% if has_button %}
+                  <div class="module-cta home-left-right-cta">
+                    <a class="button {{ block.settings.button_style }}" href="{{ block.settings.button_link }}">
+                      {{ block.settings.button_text | escape }}
+                    </a>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+            <div class="home-left-right-section home-left-right-media">
+              {% if block.type == 'image' %}
+                {% if feature_image != blank and block.settings.image_type == 'feature_image' %}
+                  <img
+                    class="home-left-right-image desktop-only"
+                    src="{{ feature_image | img_url: '2000x'}}"
+                    alt="{{ feature_image.alt | escape }}">
+                {% endif %}
+              {% endif %}
+
+              {% if block.type == 'video' %}
+                {% if  block.settings.video_url != blank %}
+                  <div
+                    class="home-left-right-video {% if feature_image %}video-wrapper{% endif %}"
+                    {% if feature_image %}
+                      data-video-wrapper
+                      style="background-image:url('{{ feature_image | img_url: '1020x700'}}');"
+                    {% endif %}
+                    >
+                    {% if feature_image %}
+                      <div class="video-wrapper-overlay" data-video-overlay>
+                        <div class="video-wrapper-text-container">
+                          <a class="video-wrapper-button" data-overlay-play>
+                            <span class="video-wrapper-triangle"></span>
+                          </a>
+                        </div>
+                      </div>
+                    {% endif %}
+
+                    <div class="full-width-video" data-video-wrapper>
+                      {%- capture video_code %}
+                        {% if block.settings.video_url.type == "youtube" %}
+                          <iframe src="//www.youtube.com/embed/{{ block.settings.video_url.id }}?rel=0&showinfo=0&vq=720" width="850" height="480" frameborder="0" allowfullscreen></iframe>
+                        {% endif %}
+                        {% if block.settings.video_url.type == "vimeo" %}
+                          <iframe src="//player.vimeo.com/video/{{ block.settings.video_url.id }}?byline=0&portrait=0&badge=0" width="850" height="480" frameborder="0" allowfullscreen></iframe>
+                        {% endif %}
+                      {%- endcapture %}
+                      {% include 'video-embed', video: video_code %}
+                    </div>
+                  </div>
+                {% else %}
+                  <div class="home-left-right-video">
+                    <div class="full-width-video" data-video-wrapper>
+                      {%- capture video_code %}
+                        <iframe
+                          src="//www.youtube.com/embed/_9VUPq3SxOc?rel=0"
+                          width="850"
+                          height="480"
+                          frameborder="0"></iframe>
+                      {%- endcapture %}
+                      {% include 'video-embed', video: video_code %}
+                    </div>
+                  </div>
+                {% endif %}
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% schema %}
+{
+  "name": "Alternating content diff",
+  "max_blocks": 3,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Alternating Content Heading"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "select",
+          "id": "style",
+          "label": "Background style",
+          "options": [
+            {
+              "value": "default",
+              "label": "Default"
+            },
+            {
+              "value": "light",
+              "label": "Light"
+            },
+            {
+              "value": "color",
+              "label": "Color"
+            },
+            {
+              "value": "gradient",
+              "label": "Gradient"
+            },
+            {
+              "value": "secondary-color",
+              "label": "Secondary Color"
+            },
+            {
+              "value": "third-color",
+              "label": "Third Color"
+            },
+            {
+              "value": "fourth-color",
+              "label": "Fourth Color"
+            },
+            {
+              "value": "fifth-color",
+              "label": "Fifth Color"
+            }
+          ],
+          "default": "default"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon image",
+          "info": "120 x 120px .png recommended."
+        },
+        {
+          "type": "text",
+          "id": "top_title",
+          "label": "Top Small Heading",
+          "default": "Top title here"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Alternating content"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Employ up to three alternating features with an option to use an image or video and include a call to action button.</p>"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button text"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "button_style",
+          "label": "Button Style",
+          "options": [
+            {
+              "value": "light",
+              "label": "Light"
+            },
+            {
+              "value": "primary",
+              "label": "Primary"
+            },
+            {
+              "value": "secondary",
+              "label": "Secondary"
+            },
+            {
+              "value": "third",
+              "label": "Third Color"
+            },
+            {
+              "value": "fourth",
+              "label": "Fourth Color"
+            },
+            {
+              "value": "fifth",
+              "label": "Fifth Color"
+            },
+            {
+              "value": "clear-dark",
+              "label": "Clear Dark"
+            },
+            {
+              "value": "clear-light",
+              "label": "Clear Light"
+            }
+          ],
+          "default": "light"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "2000px width .jpg recommended"
+        },
+        {
+          "type": "select",
+          "id": "image_type",
+          "label": "Image Type",
+          "options": [
+            {
+              "value": "feature_image",
+              "label": "Featured Image"
+            },
+            {
+              "value": "background_image",
+              "label": "Background Image"
+            }
+          ],
+          "default": "feature_image"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "name": "Video",
+      "settings": [
+        {
+          "type": "select",
+          "id": "style",
+          "label": "Background style",
+          "options": [
+            {
+              "value": "default",
+              "label": "Default"
+            },
+            {
+              "value": "light",
+              "label": "Light"
+            },
+            {
+              "value": "color",
+              "label": "Color"
+            },
+            {
+              "value": "gradient",
+              "label": "Gradient"
+            },
+            {
+              "value": "secondary-color",
+              "label": "Secondary Color"
+            }
+          ],
+          "default": "default"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Alternating content"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Employ up to three alternating features with an option to use an image or video and include a call to action button.</p>"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button text"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Link"
+        },
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "label": "Youtube or Vimeo link",
+          "accept": [
+            "youtube",
+            "vimeo"
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Video thumbnail",
+          "info": "2000px width .png recommended"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "category": "Sub Page Sections",
+      "name": "Alternating content diff",
+      "blocks": [
+        {
+          "type": "image",
+          "settings": {
+            "button_text": "This is your call to action",
+            "button_link": "shopify:\/\/collections"
+          }
+        },
+        {
+          "type": "video",
+          "settings": {
+            "button_text": "This is your call to action",
+            "button_link": "shopify:\/\/collections"
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "button_text": "This is your call to action",
+            "button_link": "shopify:\/\/collections"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

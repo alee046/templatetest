@@ -1,0 +1,164 @@
+
+<div class="side-text-wrapper brand-ambassador-wrapper">
+  <div class="contact-wrapper">
+    <div class="module-text">
+      <div class="contact-item contact-form">
+        {% form 'contact', id: 'contact-form' %}
+          {% if form.errors %}
+            <div class="contact-form-error-message">
+              {{ 'contact.error' | t }}
+            </div>
+          {% endif %}
+          {% if form.posted_successfully? %}
+            <div class="success-message contact-form-success">
+              <span class="icon icon-check contact-form-success-icon"></span>
+              <p>Thank you for contacting us! We will get back to you as soon as possible.</p>
+            </div>
+          {% endif %}
+          <div class="input-wrapper first">
+            <input
+              type="text"
+              id="contact[name]"
+              placeholder="{{ 'general.general.name_placeholder' | t }}"
+              aria-label="{{ 'general.general.name_placeholder' | t }}"
+              value=""
+              name="contact[name]"
+              class="{% if form.errors contains 'author' %}error{% endif %}">
+          </div>
+          <div class="input-wrapper">
+            <input
+              type="text"
+              id="contact[city]"
+              placeholder="{{ 'customer.addresses.city_placeholder' | t }}"
+              aria-label="{{ 'customer.addresses.city_placeholder' | t }}"
+              value=""
+              name="contact[city]"
+              class="{% if form.errors contains 'author' %}error{% endif %}">
+          </div>
+          <div class="input-wrapper">
+            <input
+              type="text"
+              id="contact[province]"
+              placeholder="{{ 'customer.addresses.province_placeholder' | t }}"
+              aria-label="{{ 'customer.addresses.province_placeholder' | t }}"
+              value=""
+              name="contact[province]"
+              class="{% if form.errors contains 'author' %}error{% endif %}">
+          </div>
+          <div class="input-wrapper">
+            <input
+              type="text"
+              id="contact[email]"
+              placeholder="{{ 'general.general.email_placeholder' | t }}"
+              aria-label="{{ 'general.general.email_placeholder' | t }}"
+              value=""
+              name="contact[email]"
+              class="{% if form.errors contains 'email' %}error{% endif %}">
+          </div>
+          <div class="input-wrapper">
+            <input
+              type="text"
+              id="contact[phone]"
+              placeholder="{{ 'customer.addresses.phone_placeholder' | t }}"
+              aria-label="{{ 'customer.addresses.phone_placeholder' | t }}"
+              value=""
+              name="contact[phone]"
+              class="{% if form.errors contains 'author' %}error{% endif %}">
+          </div>
+          <div class="input-wrapper">
+            <input
+              type="text"
+              id="contact[why_ambassador]"
+              placeholder="Name of your practice"
+              aria-label="Name of your practice"
+              value=""
+              name="contact[why_ambassador]"
+              class="{% if form.errors contains 'author' %}error{% endif %}">
+          </div>
+          <div class="input-wrapper">
+            <textarea
+              id="contact[body]"
+              placeholder="{{ 'general.general.message' | t }}"
+              aria-label="{{ 'general.general.message' | t }}"
+              name="contact[body]"
+              rows="6"
+              class="{% if form.errors contains 'body' %}error{% endif %}"></textarea>
+          </div>
+          <div class="input-wrapper last">
+            <input
+              class="button secondary"
+              type="submit"
+              value="{{ 'general.general.submit' | t }}"
+              aria-label="{{ 'general.general.submit' | t }}"
+            >
+          </div>
+        {% endform %}
+      </div>
+    </div>
+    <div class="right-contact-wrapper">
+      <h2 class='right-contact-header'>We're here to help</h2>
+      <div class="right-contact-info-wrapper">
+        <img class="list-item-icon"
+          alt="{{ icon.alt | escape }}"
+          src="{{ section.settings.email-icon | img_url: '40x40', crop: 'center' }}">
+        <a href="mailto:pro@omax3.com" target="_blank">pro@omax3.com</a>
+      </div>
+      <div class="right-contact-info-wrapper">
+        <img class="list-item-icon"
+          alt="{{ icon.alt | escape }}"
+          src="{{ section.settings.phone-icon | img_url: '40x40', crop: 'center' }}">
+        <a href="tel:1-855-978-6615">1-855-978-6615</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Contact form",
+  "settings": [
+    {
+      "type": "select",
+      "id": "style",
+      "label": "Background style",
+      "options": [
+        {
+          "value": "default",
+          "label": "Default"
+        },
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "color",
+          "label": "Color"
+        },
+        {
+          "value": "gradient",
+          "label": "Gradient"
+        }
+      ],
+      "default": "light"
+    },
+    {
+      "type": "image_picker",
+      "id": "email-icon",
+      "label": "Email icon",
+      "info": "40 x 40px .png recommended."
+    },
+    {
+      "type": "image_picker",
+      "id": "phone-icon",
+      "label": "Phone icon",
+      "info": "40 x 40px .png recommended."
+    },
+    {
+      "type": "image_picker",
+      "id": "messenger-icon",
+      "label": "Messenger icon",
+      "info": "40 x 40px .png recommended."
+    }
+  ]
+}
+{% endschema %}

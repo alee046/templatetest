@@ -1,0 +1,161 @@
+{% assign media_layout = block.settings.media_layout %}
+
+{% assign has_content = false %}
+{% assign has_cta = false %}
+
+{%- if block.settings.title != blank or block.settings.text != blank -%}
+  {% assign has_content = true %}
+{%- endif -%}
+
+{%- if block.settings.button_text != blank and block.settings.button_link != blank -%}
+  {% assign has_cta = true %}
+  {% assign has_content = true %}
+{%- endif -%}
+
+{% if block.settings.video_url != blank %}
+  {% assign block.settings.video_url = true %}
+{% endif %}
+
+{% if media_layout == 'image-highlight' %}
+  {%- capture feature_image -%}
+    {% if block.settings.image %}
+      <img
+        class="home-full-width-media"
+        src="{{ block.settings.image | img_url: '2048x2048' }}"
+        alt="{{ block.settings.image.alt | escape }}">
+    {% else %}
+      {{ 'lifestyle-1' | placeholder_svg_tag: 'home-full-width-media placeholder-svg' }}
+    {% endif %}
+  {%- endcapture -%}
+{% endif %}
+
+{%- capture section_class -%}
+  style-{{ block.settings.style }}
+  module-wrapper
+  text-aligned-{{ block.settings.alignment }}
+  {% if block.settings.video_url == blank and block.settings.media_layout == video-highlight %}border{% endif %}
+{%- endcapture -%}
+
+{%- capture content_class -%}
+  module
+  home-full-width-feature
+
+  {% if block.settings.height != 'default' %}
+    tall
+  {% endif %}
+
+  {% if block.settings.media_layout != 'none' %}
+    has-media
+  {% endif %}
+
+  {% if block.settings.media_layout == 'video-highlight' %}
+    no-content
+    has-video
+  {% elsif block.settings.media_layout == 'image-highlight' %}
+    {% if has_content %}
+      has-content
+    {% else %}
+      no-content
+    {% endif %}
+  {% endif %}
+{%- endcapture -%}
+
+
+<div
+  class="{{ section_class | strip_newlines }}"
+  data-section-id="{{ section.id }}"
+  data-section-type="full-width-feature"
+  {% if block.settings.image != blank %}
+    style="background:url('{{ block.settings.image | img_url: '2000x' }}') no-repeat center center; background-size: cover;"
+  {% endif %}>
+
+  <div class="{{ content_class | strip_newlines }}">
+    {% if block.settings.image != blank %}
+      <img class="mobile-background-image mobile-only" src="{{ block.settings.image | img_url: '2000x' }}">
+    {% endif %}
+    <div class="white-background-wrapper">
+      {% if block.settings.media_layout == 'none' or block.settings.media_layout == 'image-highlight' %}
+        {% if block.settings.title != blank %}
+          <div class="module-header home-full-width-header">
+            <h2 class="module-title home-full-width-module-title">
+              {{ block.settings.title | escape }}
+            </h2>
+          </div>
+        {% endif %}
+
+        {% if block.settings.text != blank or has_cta %}
+          <div class="module-body home-full-width-body">
+            {% if block.settings.text != blank %}
+              <div class="module-content home-full-width-content home-full-width-body-item">
+                {{ block.settings.text }}
+              </div>
+            {% endif %}
+
+            {% if has_cta %}
+              <div class="module-cta home-full-width-cta home-full-width-body-item">
+                <a class="button {{ block.settings.button_style }}" href="{{ block.settings.button_link }}">
+                  {{ block.settings.button_text | escape }}
+                </a>
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+
+      {% endif %}
+    </div>
+
+    {% if block.settings.media_layout == 'video-highlight' %}
+      <div
+        class="video-wrapper {% if block.settings.image == blank %}no-image{% endif %}"
+        data-video-wrapper
+        {% if block.settings.image != blank %}
+          style="background-image:url('{{ block.settings.image | img_url: '2000x' }}')"
+        {% endif %}
+        >
+        <div class="video-wrapper-overlay" data-video-overlay>
+          <div class="video-wrapper-text-container">
+            {% if block.settings.title != blank %}
+              <div class="module-title video-wrapper-title">
+                <h3>
+                  {{ block.settings.title | escape }}
+                </h3>
+              </div>
+            {% endif %}
+
+            {% if block.settings.text != blank %}
+              <div class="module-subtitle video-wrapper-subtitle">
+                {{ block.settings.text }}
+              </div>
+            {% endif %}
+
+            <a class="video-wrapper-button" data-overlay-play>
+              <span class="video-wrapper-triangle"></span>
+            </a>
+          </div>
+        </div>
+
+        <div class="full-width-video {{ block.settings.media_layout }}">
+          {% if block.settings.video_url != blank %}
+            {%- capture video_code %}
+              {% if block.settings.video_url.type == "youtube" %}
+                <iframe src="//www.youtube.com/embed/{{ block.settings.video_url.id }}?rel=0&showinfo=0&vq=720" width="850" height="480" frameborder="0" allowfullscreen></iframe>
+              {% endif %}
+              {% if block.settings.video_url.type == "vimeo" %}
+                <iframe src="//player.vimeo.com/video/{{ block.settings.video_url.id }}?byline=0&portrait=0&badge=0" width="850" height="480" frameborder="0" allowfullscreen></iframe>
+              {% endif %}
+            {%- endcapture %}
+          {% else %}
+            {%- capture video_code %}
+              <iframe
+                src="//www.youtube.com/embed/_9VUPq3SxOc?rel=0"
+                width="850"
+                height="480"
+                frameborder="0"></iframe>
+            {%- endcapture %}
+          {% endif %}
+          {% include 'video-embed', video: video_code %}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>

@@ -1,0 +1,130 @@
+h3 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+p {
+    font-size: 16px;
+}
+
+h5 {
+    font-size: 18px;
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: 700;
+}
+
+.field label {
+    font-size: 16px;
+}
+
+.field input,
+.field select {
+    font-size: 16px;
+    color: #333333;
+}
+
+.field input::placeholder,
+.field select::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+.btn, .btn.btn--primary {
+    font-size: 16px;
+    border-radius: 0;
+    background-color: #239fa6;
+    padding: 12px 30px;
+    color: white !important;
+}
+
+.btn:hover, .btn.btn--primary:hover {
+    background-color: #207f7d;
+}
+
+.total-line,
+span {
+    font-size: 16px;
+    color: #333333;
+}
+
+.order-summary .payment-due-container .payment-due__price {
+    font-weight: 500;
+    color: black;
+}
+
+.product__info__name,
+.product__info__frequency {
+    float: left;
+}
+
+.product__price {
+    float: right;
+    margin-top: 0 !important;
+}
+
+.chrome input[type="radio"]:checked, .safari input[type="radio"]:checked {
+    background-color: #239fa6;
+    border-color: #239fa6;
+    -webkit-box-shadow: 0 0 0 10px #239fa6 inset;
+    box-shadow: 0 0 0 10px #239fa6 inset;
+}
+
+.payment-due__currency {
+    font-size: 0.85714em;
+    vertical-align: 0.2em;
+    margin-right: 0.5em;
+    color: #969696;
+    background: none;
+}
+
+a {
+    color: #239fa6 !important;
+}
+
+@media (min-width: 600px) {
+	.chrome input[type="checkbox"]:after, .safari input[type="checkbox"]:after {
+		background-image: url(https://cdn.shopify.com/s/files/1/2010/4089/files/ico-check-blue-475cfbaeeead1640eb8ec302b1ec6c88.png?14184616414014663162);
+	}
+}
+
+.chrome input[type="checkbox"], .safari input[type="checkbox"], input[type="checkbox"] {
+    border-color: #239fa6;
+    color: #239fa6;
+}
+
+input[type="checkbox"]:checked {
+    background: #239fa6;
+}
+
+
+.btn--primary {
+    font-size: 16px;
+    border-radius: 0;
+    background-color: #239fa6;
+    padding: 12px 30px;
+    color: white !important;
+}
+
+.btn--primary:hover, .btn--primary:focus {
+    background-color: #207f7d;
+}
+
+@media (max-width: 599px) {
+	.chrome input[type='checkbox'], .safari input[type='checkbox'] {
+		border: 2px solid #239fa6;
+		background: #239fa6;
+	}
+}
+
+@media only screen and (max-width: 599px) {
+	.address_info {
+		width: 40%;
+	}
+	
+}
+ @media only screen and (max-width: 400px) {
+ 	.address_info {
+ 		margin-left: 30px;
+ 	}
+ }

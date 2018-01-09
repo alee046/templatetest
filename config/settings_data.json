@@ -1,0 +1,1748 @@
+{
+  "current": {
+    "theme-primary-color": "#239fa6",
+    "theme-secondary-color": "#fb9a24",
+    "theme-third-color": "#239fa6",
+    "theme-fourth-color": "#4e4373",
+    "theme-fifth-color": "#5c97e6",
+    "theme-sale-red-color": "",
+    "heading-text-color": "#000000",
+    "body-text-color": "#000000",
+    "body-text-light": "#454545",
+    "border-color": "#e3e3e3",
+    "body-background-color": "#fff",
+    "body-font": "'Gotham SSm A', 'Gotham SSm B', sans-serif",
+    "body-font-weight": "300",
+    "heading-font": "'Gotham SSm A', 'Gotham SSm B', sans-serif",
+    "heading-font-weight": "500",
+    "primary-button-font": "'Gotham SSm A', 'Gotham SSm B', sans-serif",
+    "primary-button-font-weight": "400",
+    "featured-product-main": "",
+    "product_module_1": "none",
+    "product_module_2": "none",
+    "product-sale-goal-use": false,
+    "product-sale-goal-style": "gradient",
+    "product_sale_goal_button": "Pre-order",
+    "product_sale_goal_estimated_delivery_date": "",
+    "product_goal_starting_quantity": "",
+    "product_goal": "",
+    "product_goal_use_quantity": false,
+    "product_sale_goal_date_time": "06\/21\/2017 15:00",
+    "social_facebook_url": "http:\/\/facebook.com\/omax3",
+    "social_twitter_url": "http:\/\/twitter.com\/omax3",
+    "social_google_url": "",
+    "social_pinterest_url": "",
+    "social_instagram_url": "https:\/\/www.instagram.com\/omax3\/",
+    "social_vimeo_url": "",
+    "social_youtube_url": "https:\/\/www.youtube.com\/user\/omax3omega3",
+    "social_rss_url": "http:\/\/www.omaxblog.com\/",
+    "show-currency-switcher": false,
+    "currency-switcher-format": "money_format",
+    "currency_switcher_supported_currencies": "INR GBP CAD USD AUD EUR JPY",
+    "currency_switcher_default": "USD",
+    "favicon": "shopify:\/\/shop_images\/favicon.png",
+    "checkout_header_image": "",
+    "checkout_logo_image": "shopify:\/\/shop_images\/Omax_Health_400x200_edc93bab-0672-4a1b-b3a8-ac706eb7a817.png",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "large",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "rgba(0,0,0,0)",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "Helvetica Neue",
+    "checkout_body_font": "Open Sans",
+    "checkout_accent_color": "#239fa6",
+    "checkout_button_color": "#239fa6",
+    "checkout_error_color": "#ff6d6d",
+    "theme-primary-color-hover": "#0288b5",
+    "sections": {
+      "home-slideshow": {
+        "type": "home-slideshow",
+        "blocks": {
+          "1511661497229": {
+            "type": "slide",
+            "settings": {
+              "alignment": "right",
+              "text_style": "dark",
+              "slide_state": "inactive",
+              "image": "shopify:\/\/shop_images\/cyber-monday-bg-final.jpg",
+              "overlay_style": "none",
+              "overlay_opacity": "1",
+              "specialsale": "cyber-monday",
+              "title": "Cyber Monday",
+              "subtitle": "SALE",
+              "priceoff": "40% off",
+              "priceoff-subheading": "",
+              "smallprint": "*Except for Omax3 Ultra-Pure and Omax3 Pro Strength",
+              "button_text": "Shop",
+              "url": "shopify:\/\/collections\/all",
+              "button_style": "sale-red-color"
+            }
+          },
+          "1511040709632": {
+            "type": "slide",
+            "settings": {
+              "alignment": "center",
+              "text_style": "light",
+              "slide_state": "inactive",
+              "image": "shopify:\/\/shop_images\/black-friday-bg-final.jpg",
+              "overlay_style": "none",
+              "overlay_opacity": "1",
+              "specialsale": "black-friday",
+              "title": "Black",
+              "subtitle": "Friday Sale",
+              "priceoff": "30% off",
+              "priceoff-subheading": "",
+              "smallprint": "*Except for Omax3 Ultra-Pure and Omax3 Pro Strength",
+              "button_text": "Shop",
+              "url": "shopify:\/\/collections\/all",
+              "button_style": "secondary"
+            }
+          },
+          "slide-1": {
+            "type": "slide",
+            "settings": {
+              "alignment": "right",
+              "text_style": "dark",
+              "slide_state": "active",
+              "image": "shopify:\/\/shop_images\/home-hero-1_fb99b0ca-da9e-43b2-a808-a36f222da135.jpg",
+              "overlay_style": "none",
+              "overlay_opacity": "1",
+              "specialsale": "",
+              "title": "The Power of Pure",
+              "subtitle": "Activate your body’s natural healing power with Omax3, the  93.9% pure omega-3 supplement developed by Yale-affiliated scientists.",
+              "priceoff": "",
+              "priceoff-subheading": "",
+              "smallprint": "",
+              "button_text": "Shop Now",
+              "url": "shopify:\/\/collections\/all",
+              "button_style": "secondary"
+            }
+          }
+        },
+        "block_order": [
+          "1511661497229",
+          "1511040709632",
+          "slide-1"
+        ],
+        "settings": {
+          "enable": true,
+          "layout": "full-width",
+          "transition": "transition-slide",
+          "autoplay": false
+        }
+      },
+      "home-images-with-text": {
+        "type": "home-images-with-text",
+        "blocks": {
+          "images-with-text-1": {
+            "type": "image",
+            "settings": {
+              "media_layout": "image-highlight",
+              "image": "shopify:\/\/shop_images\/home-feature-OmaxUltraPure_2000.jpg",
+              "video_url": "",
+              "top_title": "OUR BEST SELLING OMEGA-3",
+              "title": "Omax3® Ultra-Pure",
+              "text": "<p>Harvested from the richest source of omega-3s in the world, our patented ProResolv formula packs a punch with 4x more EPA than DHA, created&nbsp;to fight inflammation and provide optimal wellness.&nbsp;<\/p>",
+              "button_text": "Shop OMAX3",
+              "button_link": "shopify:\/\/products\/omax3-ultra-pure",
+              "button_style": "secondary"
+            }
+          },
+          "images-with-text-3": {
+            "type": "image",
+            "settings": {
+              "media_layout": "none",
+              "image": "shopify:\/\/shop_images\/home-feature-OmaxPet_2000_1600x-compressed.jpg",
+              "video_url": "",
+              "top_title": "NEW! HIGH POTENCY OMEGA-3 FOR DOGS",
+              "title": "Omax3® Pet Health",
+              "text": "<p>Support your dog's joint, heart and skin health, with our&nbsp;new bacon-flavored omega-3 supplement, formulated especially for&nbsp;dogs.<\/p>",
+              "button_text": "Shop",
+              "button_link": "shopify:\/\/products\/omax3-pet",
+              "button_style": "light"
+            }
+          },
+          "images-with-text-2": {
+            "type": "image",
+            "settings": {
+              "media_layout": "none",
+              "image": "shopify:\/\/shop_images\/home-feature-OmaxProfess_2000.jpg",
+              "video_url": "",
+              "top_title": "CERTIFIED PROFESSIONAL STRENGTH",
+              "title": "Omax3® Pro Strength",
+              "text": "<p>Get the highest concentration of omega-3s, in the clinical&nbsp;strength Omax3, designed for pro athletes and healthcare professionals. &nbsp;Certified for sport by NSF International.<\/p>",
+              "button_text": "Shop PRO",
+              "button_link": "shopify:\/\/products\/omax3-professional-strength",
+              "button_style": "secondary"
+            }
+          },
+          "1508714645626": {
+            "type": "image",
+            "settings": {
+              "media_layout": "none",
+              "image": "shopify:\/\/shop_images\/Probiotic.jpg",
+              "video_url": "",
+              "top_title": "NOW AVAILABLE!",
+              "title": "Triple Action Probiotic",
+              "text": "<p>Support a healthy gut with our new high-potency 3-in-1 formula to support digestion, immunity and urinary health.<\/p>",
+              "button_text": "LEARN MORE",
+              "button_link": "shopify:\/\/products\/triple-action-probiotic",
+              "button_style": "light"
+            }
+          }
+        },
+        "block_order": [
+          "images-with-text-1",
+          "images-with-text-3",
+          "images-with-text-2",
+          "1508714645626"
+        ],
+        "settings": {
+          "arrows": "show",
+          "style": "default",
+          "title": "",
+          "subtitle": "",
+          "alignment": "left"
+        }
+      },
+      "home-text-columns-with-icons": {
+        "type": "home-text-columns-with-icons",
+        "blocks": {
+          "text-column-1": {
+            "type": "text_column",
+            "settings": {
+              "title": "",
+              "text": "<p>Omega-3s can help reduce inflammation, decrease&nbsp;muscle and joint soreness, help speed up muscle recovery and promote optimal health and wellness.<\/p>",
+              "image": "shopify:\/\/shop_images\/home-3_c8664bf5-ba1e-478d-bf4e-d3249d4cc797.jpg"
+            }
+          },
+          "text-column-2": {
+            "type": "text_column",
+            "settings": {
+              "title": "",
+              "text": "<p>Omega-3s boost heart health, may reduce your risk of coronary heart disease, and can help your body maintain normal blood triglyceride levels.<\/p>",
+              "image": "shopify:\/\/shop_images\/home-2_588be343-a855-40e5-8f7b-bdd324c60ce7.jpg"
+            }
+          },
+          "text-column-3": {
+            "type": "text_column",
+            "settings": {
+              "title": "",
+              "text": "<p>Omega-3s can help optimize mental performance, improve your mood and concentration, and support overall cognitive health.&nbsp;<\/p>",
+              "image": "shopify:\/\/shop_images\/home-1_8b049093-f38e-4365-a02e-910ec186a445.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "text-column-1",
+          "text-column-2",
+          "text-column-3"
+        ],
+        "settings": {
+          "style": "light",
+          "columns_per_row": "3",
+          "title": "Clinical Strength Formula with Therapeutic Results",
+          "subtitle": "",
+          "button_text": "Learn More",
+          "button_link": "shopify:\/\/pages\/why-omega-3",
+          "button_style": "clear-dark"
+        }
+      },
+      "general-social-feeds": {
+        "type": "general-social-feeds",
+        "blocks": {
+          "widget-block-1": {
+            "type": "instagram",
+            "settings": {
+              "access_token": ""
+            }
+          }
+        },
+        "block_order": [
+          "widget-block-1"
+        ],
+        "settings": {}
+      },
+      "general-footer": {
+        "type": "general-footer",
+        "blocks": {
+          "1496340881794": {
+            "type": "menu",
+            "settings": {
+              "menu": "company"
+            }
+          },
+          "1496340891382": {
+            "type": "menu",
+            "settings": {
+              "menu": "footer-questions"
+            }
+          },
+          "1496340895712": {
+            "type": "richtext",
+            "settings": {
+              "title": "CONTACT",
+              "text": "<p><a href=\"mailto:customercare@omax3.com\" title=\"mailto:customercare@omax3.com\">customercare@omax3.com<\/a><\/p>\n<p>1-800-765-6691<\/p>\n<p>Hours: &nbsp;M-F 8am - 7pm EST&nbsp;<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "1496340881794",
+          "1496340891382",
+          "1496340895712"
+        ],
+        "settings": {
+          "style": "default",
+          "terms": "shopify:\/\/pages\/terms",
+          "privacy": "shopify:\/\/pages\/privacy-policy",
+          "facebook_icon": "shopify:\/\/shop_images\/facbook_87faafb6-8abc-40ce-bbd9-3c374617ad50.png",
+          "facebook_link": "https:\/\/www.facebook.com\/Omax3\/",
+          "instagram_icon": "shopify:\/\/shop_images\/insta_c2fe420d-cff9-4221-a900-8769beb96f3e.png",
+          "instagram_link": "https:\/\/www.instagram.com\/omax3\/",
+          "twitter_icon": "shopify:\/\/shop_images\/twittwr_13a5013d-aca0-4224-9d2a-80439de9ffc3.png",
+          "twitter_link": "https:\/\/twitter.com\/omax3",
+          "enable_borders": true,
+          "payment_icons": false,
+          "show_logo": false,
+          "footer_logo": "shopify:\/\/shop_images\/Omax_Health_400x200_edc93bab-0672-4a1b-b3a8-ac706eb7a817.png",
+          "footer_logo_alternate": ""
+        }
+      },
+      "general-header": {
+        "type": "general-header",
+        "settings": {
+          "menu": "main-menu",
+          "header_sticky": true,
+          "show_cart": true,
+          "drawer_social_icons": false,
+          "header_logo": "shopify:\/\/shop_images\/logo.png",
+          "header_logo_alternate": "",
+          "refer_link": "shopify:\/\/pages\/refer-a-friend",
+          "button_text": "",
+          "button_link": "",
+          "button_style": "light"
+        }
+      },
+      "general-newsletter": {
+        "type": "general-newsletter",
+        "settings": {
+          "enable": true,
+          "style": "color"
+        }
+      },
+      "full-media-about-why": {
+        "type": "full-media-about-why",
+        "blocks": {
+          "1497894643173": {
+            "type": "full-width-media",
+            "settings": {
+              "style": "light",
+              "alignment": "left",
+              "height": "default",
+              "title": "Nature’s Healing Super Nutrient",
+              "text": "<p>Doctors and experts around the world agree: getting the right balance of omega-3s is&nbsp;key to a healthy heart, mind and body.<\/p>",
+              "media_layout": "image-highlight",
+              "image": "shopify:\/\/shop_images\/why-banner-1_eb8961f7-d8d5-4943-8799-1b3904c37ad7.jpg",
+              "video_url": "",
+              "button_text": "",
+              "button_link": "",
+              "button_style": "light"
+            }
+          }
+        },
+        "block_order": [
+          "1497894643173"
+        ],
+        "settings": {}
+      },
+      "alternating-content-why": {
+        "type": "alternating-content-why",
+        "blocks": {
+          "1498770016567": {
+            "type": "image",
+            "settings": {
+              "style": "light",
+              "icon": "",
+              "title": "Omega-3 Restores Optimal Health",
+              "text": "<p>Omega-3s found in fatty fish such as salmon, tuna and sardines have natural anti-inflammatory properties that restore balance in your body. Adding omega-3 to your diet is smart, and choosing the best omega-3 supplement makes all the difference.<\/p>\n<p>Thousands of people have turned to Omax3 The Ultra-Pure Omega-3 for exceptional purity, potency and concentration.<\/p>",
+              "button_text": "Shop",
+              "button_link": "shopify:\/\/collections\/all",
+              "button_style": "secondary",
+              "image": "shopify:\/\/shop_images\/why-alt-first_1.jpg"
+            }
+          },
+          "1496260180328": {
+            "type": "image",
+            "settings": {
+              "style": "default",
+              "icon": "shopify:\/\/shop_images\/icon-1_10ca8cf3-1d01-49dd-b656-3391e4c7337c.png",
+              "title": "Get Heart Healthy",
+              "text": "<p>Omega-3s are essential for lowering triglycerides and can help improve cardiovascular health, due to the inflammation fighting benefits of EPA. Omega-3s can also help support normal blood pressure and could even help reduce the risk of coronary heart disease.* Omax3 has been formulated so it doesn't increase&nbsp;LDL levels, or bad cholesterol.<\/p>",
+              "button_text": "",
+              "button_link": "",
+              "button_style": "light",
+              "image": "shopify:\/\/shop_images\/why-alt-1.jpg"
+            }
+          },
+          "1496260183363": {
+            "type": "image",
+            "settings": {
+              "style": "default",
+              "icon": "shopify:\/\/shop_images\/icon-2_0c50aaf5-1000-4d6d-b121-9e45aad5816e.png",
+              "title": "Support Joints & Muscles",
+              "text": "<p>Omega-3s are a powerful, natural anti- inflammatory, which make it ideal for relieving joint stiffness and age-related aches and pains. Athletes count on the power of omega-3s to help improve joint health and flexibility, shorten recovery and reduce delayed onset muscle soreness.&nbsp;Research also suggests omega-3s help maintain muscle&nbsp;mass between workouts.<\/p>",
+              "button_text": "",
+              "button_link": "",
+              "button_style": "light",
+              "image": "shopify:\/\/shop_images\/why-alt-2_ed2d207d-419e-4354-b315-33c7066bc373.jpg"
+            }
+          },
+          "1496260185809": {
+            "type": "image",
+            "settings": {
+              "style": "default",
+              "icon": "shopify:\/\/shop_images\/icon-3.png",
+              "title": "Boost Cognition &amp; Focus",
+              "text": "<p>A diet rich in omega-3s, and especially the fatty acid known as DHA, can help improve mental clarity, cognition and focus at any age. Science has also suggested that omega-3s can help slow the effects of age-related memory loss while promoting a positive mood.<\/p>",
+              "button_text": "",
+              "button_link": "",
+              "button_style": "light",
+              "image": "shopify:\/\/shop_images\/why-alt-3_99c49b25-d464-4347-aa98-2ee66a357444.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "1498770016567",
+          "1496260180328",
+          "1496260183363",
+          "1496260185809"
+        ],
+        "settings": {
+          "title": "Clinically studied health benefits"
+        }
+      },
+      "full-media-about-difference": {
+        "type": "full-media-about-difference",
+        "blocks": {
+          "1496246784320": {
+            "type": "full-width-media",
+            "settings": {
+              "style": "light",
+              "alignment": "right",
+              "height": "default",
+              "title": "Next Generation  Omega-3 Supplement",
+              "text": "<p>Only Omax3 contains the patented ProResolv Formula, with four times more EPA than DHA, to&nbsp;naturally reduce inflammation and support optimal health.<\/p>",
+              "media_layout": "image-highlight",
+              "image": "shopify:\/\/shop_images\/diff-banner-1_2000x-compressed.jpg",
+              "video_url": "",
+              "button_text": "Shop",
+              "button_link": "shopify:\/\/collections\/all",
+              "button_style": "secondary"
+            }
+          }
+        },
+        "block_order": [
+          "1496246784320"
+        ],
+        "settings": {}
+      },
+      "template-collection": {
+        "type": "template-collection",
+        "settings": {
+          "products_per_page": "30",
+          "mobile_text_placement": "below",
+          "stock_overlay_show": false,
+          "stock_overlay_threshold": ""
+        }
+      },
+      "template-product": {
+        "type": "template-product",
+        "settings": {
+          "enable_zoom": true,
+          "disable_ajax_add_product": false,
+          "enable-share-buttons": true,
+          "additional_info_text_1": "Questions?",
+          "additional_info_url_1": "shopify:\/\/pages\/faqs",
+          "additional_info_icon_1": "question-mark",
+          "additional_info_text_2": "",
+          "additional_info_url_2": "",
+          "additional_info_icon_2": "info"
+        }
+      },
+      "module-related-products": {
+        "type": "module-related-products",
+        "settings": {
+          "enable": false,
+          "style": "light",
+          "stock_overlay_show": false,
+          "stock_overlay_threshold": "5"
+        }
+      },
+      "stat-content": {
+        "type": "stat-content",
+        "settings": {
+          "style": "default",
+          "title": "About Good Fat, Bad Fat, and Balance",
+          "subtitle": "Omega-3s and omega-6s are essential fatty acids we all need for optimal health, and our diets should contain equal amounts of both. The problem is, most people eat too many processed foods and unhealthy fats, which contain an overload of omega-6, throwing our systems out of balance. The result: our natural immune systems are weakened, generating chronic inflammation which can wreak havoc on your health.",
+          "columntitle1": "20x",
+          "columnunit1": "",
+          "text1": "<p>The average American takes in up to 20 times more omega-6 than omega-3.<\/p>",
+          "columntitle2": "80%",
+          "columnunit2": "",
+          "text2": "<p>Today, over 80% of the US population is deficient in omega-3 fatty acids.<\/p>"
+        }
+      },
+      "full-media-about-story": {
+        "type": "full-media-about-story",
+        "blocks": {
+          "1496349986764": {
+            "type": "full-width-media",
+            "settings": {
+              "style": "light",
+              "alignment": "left",
+              "height": "default",
+              "title": "Life to  the Max",
+              "text": "<p>Experience optimal health and vitality with scientifically advanced nutraceuticals developed with the highest quality standards.<\/p>",
+              "media_layout": "none",
+              "image": "shopify:\/\/shop_images\/OurStory_Header_f7544f98-941e-41d9-afb6-b4f20181832b.jpg",
+              "video_url": "",
+              "button_text": "Shop Now",
+              "button_link": "shopify:\/\/collections\/all",
+              "button_style": "clear-dark"
+            }
+          }
+        },
+        "block_order": [
+          "1496349986764"
+        ],
+        "settings": {}
+      },
+      "module-team": {
+        "type": "module-team",
+        "blocks": {
+          "module-team-2": {
+            "type": "team_member",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/1_rette_R_light_gray_grad_595cdc8c-c954-4fa1-853d-cf6e6962f19f.jpg",
+              "title": "Vladimir Coric, MD",
+              "job_title": "clinical researcher",
+              "bio": "Dr. Coric supervises and teaches at the Yale School of Medicine and has been an Associate Clinical Professor of Psychiatry at the Yale School of Medicine since 2001.  He served as Chief of the Yale Clinical Neuroscience Research Unit from 2001 to 2007. Dr. Coric served as the Program-Wide Chief Resident for the Yale Department of Psychiatry from 1999 to 2000."
+            }
+          },
+          "module-team-0": {
+            "type": "team_member",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Untitled-1_c1b5a91e-f07f-40db-ac3d-39fb130b37b4.jpg",
+              "title": "Joseph Maroon, MD",
+              "job_title": "neurosurgeon",
+              "bio": "Dr. Maroon is Professor and Vice Chairman of the Department of Neurological Surgery and Heindl Scholar in Neuroscience at the University of Pittsburgh Medical Center. In addition to being a renowned neurosurgeon, he is a sports medicine expert, health and nutrition expert and Ironman triathlete. He's also author of six books and over 270 scientific studies."
+            }
+          },
+          "module-team-1": {
+            "type": "team_member",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Martin_Hasenfeld_2017.png",
+              "title": "Martin Hasenfeld, MD",
+              "job_title": "Physical Medicine",
+              "bio": "Dr.  Hasenfeld graduated from New York Medical College and completed his residency at Columbia-Presbyterian Hospital in New York City. He is board-certified in physical medicine and rehabilitation, and specializes in treating injuries and disorders of the spine and extremities. As a physiatrist, he takes a nonsurgical approach to helping people function optimally."
+            }
+          }
+        },
+        "block_order": [
+          "module-team-2",
+          "module-team-0",
+          "module-team-1"
+        ],
+        "settings": {
+          "style": "default",
+          "column_count": "3",
+          "title": "Backed by Science",
+          "subtitle": ""
+        }
+      },
+      "text-columns-icons-story": {
+        "type": "text-columns-icons-story",
+        "blocks": {
+          "1496763264674": {
+            "type": "text_column",
+            "settings": {
+              "title": "",
+              "text": "<p><strong>Twice Tested for Purity<\/strong><\/p>",
+              "image": "shopify:\/\/shop_images\/story-3.jpg"
+            }
+          },
+          "1496763280577": {
+            "type": "text_column",
+            "settings": {
+              "title": "",
+              "text": "<p><strong>93.9% Pure Omega-3<\/strong><\/p>",
+              "image": "shopify:\/\/shop_images\/story-2.jpg"
+            }
+          },
+          "1496763294876": {
+            "type": "text_column",
+            "settings": {
+              "title": "",
+              "text": "<p><strong>4-to-1 EPA to DHA Ratio&nbsp;<\/strong><\/p>",
+              "image": "shopify:\/\/shop_images\/story-1.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "1496763264674",
+          "1496763280577",
+          "1496763294876"
+        ],
+        "settings": {
+          "style": "light",
+          "columns_per_row": "3",
+          "title": "Exceptional Purity, Potency & Balance",
+          "subtitle": "Adding an omega-3 to your diet is smart, and choosing the best-possible omega-3 supplement makes all the difference.  Omax3’s patented ProResolv formula is developed with exceptional purity, potency and balance. It’s this super charged formula that helps restore your optimal omega-3 levels.",
+          "button_text": "",
+          "button_link": "",
+          "button_style": "light"
+        }
+      },
+      "certified": {
+        "type": "certified",
+        "settings": {
+          "style": "default",
+          "image": "shopify:\/\/shop_images\/nsf-international-logo-96A5B63247-seeklogo.com.png",
+          "title": "NSF Tested & Certified",
+          "text": "<p>Omax3 is committed to the highest quality standards, using only cGMP certified manufacturing facilities and state-of-the-art processes. &nbsp;NSF International tests for ingredient content safety and label accuracy. In addition, two certificates of analysis are conducted on every batch of Omax3 to ensure&nbsp;exceptional purity. <a href=\"http:\/\/info.nsf.org\/Certified\/Dietary\/Listings.asp\" title=\"http:\/\/info.nsf.org\/Certified\/Dietary\/Listings.asp?\">See the proof here!<\/a><\/p>"
+        }
+      },
+      "full-media-about-story-2": {
+        "type": "full-media-about-story-2",
+        "blocks": {
+          "1496763489215": {
+            "type": "full-width-media",
+            "settings": {
+              "style": "color",
+              "alignment": "right",
+              "height": "default",
+              "title": "One Small Softgel. One Big Difference.",
+              "text": "",
+              "media_layout": "none",
+              "image": "shopify:\/\/shop_images\/OurStory_CTA_v2.jpg",
+              "video_url": "",
+              "button_text": "SHOP",
+              "button_link": "shopify:\/\/collections\/all",
+              "button_style": "secondary"
+            }
+          }
+        },
+        "block_order": [
+          "1496763489215"
+        ],
+        "settings": {}
+      },
+      "alternating-content-difference": {
+        "type": "alternating-content-difference",
+        "blocks": {
+          "1496845229344": {
+            "type": "image",
+            "settings": {
+              "style": "light",
+              "icon": "",
+              "top_title": "",
+              "title": "Omax3® is  the Clear Choice",
+              "text": "<p>How pure is Omax3 compared to the top-selling fish oil supplements?<strong>&nbsp;<\/strong>Take <strong>The Freezer Test Challenge<\/strong> and see the cold hard proof for yourself.<\/p>\n<p>Put any store-bought omega-3 supplement in the freezer alongside an Omax3 softgel. 24 hours later, you&rsquo;ll see the top-selling fish oil supplements turn white and cloudy, showing they're filled with other, non-omega content.*<\/p>\n<p><strong>Omax3 remains clear&nbsp;because it's 93.9% pure omega-3 content.<\/strong><\/p>",
+              "button_text": "",
+              "button_link": "",
+              "button_style": "clear-dark",
+              "image": "shopify:\/\/shop_images\/Freezer_test_v3.jpg",
+              "image_type": "feature_image"
+            }
+          }
+        },
+        "block_order": [
+          "1496845229344"
+        ],
+        "settings": {
+          "title": ""
+        }
+      },
+      "module-faq": {
+        "type": "module-faq",
+        "blocks": {
+          "module-faq-0": {
+            "type": "faq",
+            "settings": {
+              "title": "What is Omax3?",
+              "text": "<p>Omax3&reg; is a proprietary and patented omega-3 fish oil supplement developed by Yale-affiliated scientists to provide potent, natural anti-inflammatory benefits without a prescription. With just 2 easy-swallow gel capsules, Omax3 delivers a potent 1500 mg of pure omega-3 in a proprietary blend of 4-to-1 EPA to DHA.<\/p>"
+            }
+          },
+          "module-faq-1": {
+            "type": "faq",
+            "settings": {
+              "title": "What is the ProResolv Formula?",
+              "text": "<p>The ProResolv Formula was developed by Yale-affiliated scientists after years of researching the therapeutic effects of EPA and DHA, found in omega-3 fatty acids.&nbsp; By using a highly purified and patented 4:1 ratio of EPA to DHA omega-3 fatty acids, the ProResolv Formula specifically targets age and sports related aches and pains resulting from inflammation in the body.<\/p>"
+            }
+          },
+          "module-faq-2": {
+            "type": "faq",
+            "settings": {
+              "title": "Do I get enough omega-3 from my diet?",
+              "text": "<p>Probably not. Two omega-3 essential fatty acids called EPA and DHA, found in fish, have been shown to promote a healthy heart and proper inflammatory response. Many foods that are high in omega-3 that aren't fish (like flaxseed and walnuts) are also high in omega-6, which is a pro-inflammatory and negates the beneficial anti-inflammatory effects of omega-3.<\/p>"
+            }
+          },
+          "1498226916950": {
+            "type": "faq",
+            "settings": {
+              "title": "How much Omax3 should I take?",
+              "text": "<p>For adults, we recommend you start with 2 softgels per day for optimal health and wellness, and 3-4 softgels a day for imbalance or joint discomfort. If you are new to taking an omega-3, we recommend you double up your dosage for about 30-days to speed up the effects of your omega-3 supplementation. &nbsp;Take with a meal and Omax Vitamin D for maximum bioavailabilty.<\/p>"
+            }
+          },
+          "1499302898646": {
+            "type": "faq",
+            "settings": {
+              "title": "How quickly can I expect to see any benefits from taking Omax3?",
+              "text": "<p>It may take some time for you to adjust to the new balance of omega-3 in your body. While many people feel results right away, it could take up to 90-days to get the full benefit of Omax3. Consistency is the key to achieving maximum results.<\/p>"
+            }
+          },
+          "1499302934015": {
+            "type": "faq",
+            "settings": {
+              "title": "How is Omax3 different from other omega-3 supplements?",
+              "text": "<p>Omax3 was designed with a patented 4:1 EPA to DHA formula to maximize the inflammation-resolving support provided by omega-3 fatty acids. &nbsp;It was also created with 93.9% pure omega-3 concentrate, while the top selling brands of fish oil, and krill oil only contain about 30% omega-3.<\/p>"
+            }
+          },
+          "1499302961476": {
+            "type": "faq",
+            "settings": {
+              "title": "What type of fish does omax3 come from and what about mercury and other contaminants?",
+              "text": "<p>Omax3 contains omega-3 acid ethyl esters from wild-caught and sustainable anchovies and sardines.&nbsp; Omax3&rsquo;s exceptional purity is a result of double molecular distillation - a process that uses a unique filtration process to&nbsp;remove detectable levels of saturated fats and toxins, such as mercury, lead, and PCBs commonly found in fish. We have two certificates of analysis for each batch assuring purity and concentration.<\/p>"
+            }
+          },
+          "1499302984328": {
+            "type": "faq",
+            "settings": {
+              "title": "What about Krill Oil? Isn't that better?",
+              "text": "<p>Omax3 contains 16x the amount of Omega-3 EPA and DHA per serving than the leading Krill Oil. Omax3 is well tolerated due to its high level of purification.<\/p>"
+            }
+          },
+          "1499303008744": {
+            "type": "faq",
+            "settings": {
+              "title": "What is EPA and DHA?",
+              "text": "<p>EPA and DHA are essential fatty acids that your body can&rsquo;t make. These essential fatty acids are omega-3 fats, which are found in cold water fish. EPA and DHA are highly unsaturated fats that are vital nutrients and are absolutely necessary to maintain the healthy function of our bodies.<\/p>"
+            }
+          },
+          "1499303039226": {
+            "type": "faq",
+            "settings": {
+              "title": "Is DHA good for the brain?",
+              "text": "<p>DHA is a building block of tissue in the brain and retina of the eye. It helps with forming neural transmitters, which is important for brain function. DHA is found in the retina of the eye and taking DHA may be necessary for maintaining healthy levels of DHA for normal eye function.<\/p>"
+            }
+          },
+          "1499303058223": {
+            "type": "faq",
+            "settings": {
+              "title": "Is EPA good for muscles and joints?",
+              "text": "<p>EPA is important to help your body regulate inflammation.&nbsp; EPA supports your immune system to regulate inflammation throughout the body and reduce pro-inflammatory processes.&nbsp; Inflammation is the root cause of most health concerns and can reduce range of motion and causes stiffness in muscles and overused joints.<\/p>"
+            }
+          },
+          "1499303074467": {
+            "type": "faq",
+            "settings": {
+              "title": "Are EPA and DHA good for heart health?",
+              "text": "<p>EPA and DHA are converted into hormone like substances called prostaglandins, and they regulate cell activity and healthy cardiovascular function.&nbsp; There is strong evidence, but not conclusive, that EPA and DHA play a significant role in reducing the risk of cardiovascular disease.&nbsp; EPA and DHA can help reduce blood fats, (triglycerides).&nbsp;<\/p>"
+            }
+          },
+          "1499303555836": {
+            "type": "faq",
+            "settings": {
+              "title": "Are there any medical precautions?",
+              "text": "<p>Consult with a healthcare professional before starting any supplement regimen, especially&nbsp;if you are pregnant or nursing, suspect a medical condition or are taking prescription drugs. Our products are&nbsp;not intended for use by children under the age of 18 without the supervision of a healthcare professional.<\/p>"
+            }
+          },
+          "1499303094288": {
+            "type": "faq",
+            "settings": {
+              "title": "How long will shipping take?",
+              "text": "<p>We process orders Monday through Friday and ship from Maine, USA. Typically orders take 7-10 business days to arrive, depending on your location. We&nbsp;also offer rush shipping at checkout.<\/p>"
+            }
+          },
+          "1499303149597": {
+            "type": "faq",
+            "settings": {
+              "title": "How do I track my order?",
+              "text": "<p>Shipping, tracking, and order information will be emailed to the address you used to make your purchase if available. Questions about your order? <a href=\"\/pages\/contact-us\" title=\"Contact Us\">Click Here<\/a>.<\/p>"
+            }
+          },
+          "1501257047945": {
+            "type": "faq",
+            "settings": {
+              "title": "How can I order  Subscribe & Save to save 10% on all orders with free shipping?",
+              "text": "<p>The Subscribe &amp; Save order page appears when you choose \"see more details\" or click directly on the product image before \"adding to cart\" in the <a href=\"\/collections\/all\" title=\"All\">shop. <\/a>&nbsp;If the product offers this option, you can select it before addding to cart.&nbsp;<\/p>"
+            }
+          },
+          "1500344949948": {
+            "type": "faq",
+            "settings": {
+              "title": "How do I change, cancel, skip my subscription?",
+              "text": "<p>If you purchased&nbsp;through this site, you can click on <a href=\"http:\/\/omaxhealth.myshopify.com\/tools\/checkout\/front_end\/login\" title=\"http:\/\/omaxhealth.myshopify.com\/tools\/checkout\/front_end\/login\">account management<\/a> to manage your Subcribe &amp; Save orders. You can skip, change or cancel your orders at any time.<\/p>\n<p><\/p>\n<p>If you purchased by phone, or through one of our other websites, you&rsquo;ll need to contact <a href=\"\/pages\/contact-us\" title=\"Contact Us\">customer care<\/a>&nbsp;to manage your account.<\/p>"
+            }
+          },
+          "1499303184683": {
+            "type": "faq",
+            "settings": {
+              "title": "What is your return policy?",
+              "text": "<p>Before making your purchase, please read supplement details, research ingredients, and contact your physician with any questions.&nbsp; With that said, your satisfaction is our top priority. &nbsp;Read our <a href=\"\/pages\/shipping-returns\" title=\"Shipping &amp; Returns\">return policy.&nbsp;<\/a><\/p>"
+            }
+          },
+          "1500346147707": {
+            "type": "faq",
+            "settings": {
+              "title": "Contact Us",
+              "text": "<p>Have a question not listed here? Contact <a href=\"\/pages\/contact-us\" title=\"Contact Us\">customer care.<\/a><\/p>"
+            }
+          },
+          "1506461949177": {
+            "type": "faq",
+            "settings": {
+              "title": "International Checkout FAQ",
+              "text": "<p><strong>INTERNATIONAL ORDERS<\/strong>&nbsp;<\/p>\n<p><strong><a href=\"http:\/\/www.omaxhealth.com\/\">Omax Health<\/a><\/strong>&nbsp;has partnered with a trusted third-party company, International Checkout, to fulfill orders for our international customers. Simply put the items you wish to purchase in our Shopping Cart and choose the \"International Checkout\" option. You will complete your order on the secure International Checkout page. You may pay by credit card, PayPal or bank transfer. International Checkout will process your order, including billing, shipping and customer service. Once you place your order, please direct all inquiries to International Checkout at&nbsp;<span style=\"text-decoration: underline;\"><a href=\"mailto:support@internationalcheckout.com\">support@internationalcheckout.com<\/a><\/span>.<\/p>\n<p><br><strong>WHICH COUNTRIES DO YOU SHIP TO?<\/strong>&nbsp;<\/p>\n<p>International shipping is currently available WORLDWIDE from&nbsp;<strong><a href=\"http:\/\/www.omaxhealth.com\/\">Omax Health<\/a><\/strong>. Our third party vendor, International Checkout, will ship to all destinations around the world including APO \/ FPO addresses.<\/p>\n<p><br><strong>CAN I CHECK THE STATUS OF MY INTERNATIONAL ORDER?<\/strong>&nbsp;<\/p>\n<p>To check the status of your order or track your package, please login to your International Checkout account at:&nbsp;<a href=\"https:\/\/www.internationalcheckout.com\/login.php\">https:\/\/www.internationalcheckout.com\/login.php<\/a>.<\/p>\n<p><br><strong>WHO SHOULD I CONTACT WITH QUESTIONS ABOUT MY INTERNATIONAL ORDER?<\/strong>&nbsp;<\/p>\n<p>All inquiries regarding your international order should be directed to International Checkout at:<\/p>\n<p>EMAIL: &nbsp;&nbsp;<a href=\"mailto:support@internationalcheckout.com\">support@internationalcheckout.com<\/a>.<\/p>\n<p>Please visit the&nbsp;<a href=\"http:\/\/www.internationalcheckout.com\/contact.php\">International Checkout Customer Service<\/a>&nbsp;page for more information and phone numbers in your area.<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "module-faq-0",
+          "module-faq-1",
+          "module-faq-2",
+          "1498226916950",
+          "1499302898646",
+          "1499302934015",
+          "1499302961476",
+          "1499302984328",
+          "1499303008744",
+          "1499303039226",
+          "1499303058223",
+          "1499303074467",
+          "1499303555836",
+          "1499303094288",
+          "1499303149597",
+          "1501257047945",
+          "1500344949948",
+          "1499303184683",
+          "1500346147707",
+          "1506461949177"
+        ],
+        "settings": {
+          "style": "default"
+        }
+      },
+      "module-contact-form": {
+        "type": "module-contact-form",
+        "settings": {
+          "style": "default",
+          "email-icon": "shopify:\/\/shop_images\/email_d56c27af-72a9-4fd3-bc2c-c99564faa7e4.png",
+          "phone-icon": "shopify:\/\/shop_images\/phone_1e2286cb-0d2a-418d-b3c6-f9d083b952c7.png",
+          "messenger-icon": "shopify:\/\/shop_images\/facebook.png"
+        }
+      },
+      "module-map": {
+        "type": "module-map",
+        "settings": {
+          "enable": false,
+          "location_name": "Pixel Union",
+          "location_address": "1005 Langley St, Victoria, BC V8W, Canada",
+          "api_key": ""
+        }
+      },
+      "1497558112165": {
+        "type": "alternating-content-home",
+        "blocks": {
+          "1497558112165-0": {
+            "type": "image",
+            "settings": {
+              "style": "default",
+              "icon": "",
+              "top_title": "",
+              "title": "Omax3® for a Healthier You",
+              "text": "<p>Doctors and experts around the world agree: getting the right balance of high-quality omega-3s are key to a healthy heart, mind and body &mdash; and the purer the omega-3s, the better for your body.&nbsp;<\/p>\n<p>That&rsquo;s why thousands have turned to the exceptional purity and potency of Omax3 The Ultra-Pure Omega-3 Supplement.<\/p>",
+              "button_text": "Learn More",
+              "button_link": "shopify:\/\/pages\/the-omax3-difference",
+              "button_style": "clear-dark",
+              "image": "shopify:\/\/shop_images\/home-alt-1.jpg",
+              "image_type": "background_image"
+            }
+          },
+          "1498272246344": {
+            "type": "image",
+            "settings": {
+              "style": "secondary-color",
+              "icon": "",
+              "top_title": "TESTED + PATENTED",
+              "title": "Revolutionary Approach Backed by Science",
+              "text": "<p>Developed by scientists affiliated with Yale University, only Omax3 has the 4-to-1 ratio of EPA to DHA in it's ProResolv formula, which is rigorously tested for safety and purity. From ground-breaking science, comes a new and improved you.<\/p>",
+              "button_text": "Learn More",
+              "button_link": "shopify:\/\/pages\/omax3-story",
+              "button_style": "clear-light",
+              "image": "shopify:\/\/shop_images\/dripper.jpg",
+              "image_type": "background_image"
+            }
+          }
+        },
+        "block_order": [
+          "1497558112165-0",
+          "1498272246344"
+        ],
+        "settings": {
+          "title": ""
+        }
+      },
+      "1497890232632": {
+        "type": "testimonials-vertical",
+        "blocks": {
+          "1497890232632-0": {
+            "type": "text_row",
+            "settings": {
+              "title": "Mike Golic",
+              "subtitle": "Former Pro Football Player, Sports Radio Co-Host",
+              "text": "<p>Omax3 Ultra-Pure is my first line of defense against nagging inflammation. I use it daily for muscle recovery, heart health, and staying sharp, focused and energized. Throw away all of those other stinking, fish oil formulas, and use the best omega-3 fish oil out there &ndash; Omax3.<\/p>",
+              "image": "shopify:\/\/shop_images\/Mike-Golic.jpg",
+              "slide_state": "active"
+            }
+          },
+          "1497890232632-1": {
+            "type": "text_row",
+            "settings": {
+              "title": "Kristy Kowal",
+              "subtitle": "Olympic Swimmer",
+              "text": "<p>As an olympic swimmer, I push my body beyond its limits. Sometimes I'm swimming up to 55 miles a week. Omax3 keeps the inflammation out of my joints and muscles. And my mind stays sharp and focused. I know my body. I feel incredible when taking Omax3,&nbsp;both mentally and physically.<\/p>",
+              "image": "shopify:\/\/shop_images\/HS_Kristy_Kowell12.jpg",
+              "slide_state": "active"
+            }
+          },
+          "1497890232632-2": {
+            "type": "text_row",
+            "settings": {
+              "title": "Dr. Joseph Maroon",
+              "subtitle": "Neurosurgeon, Sports Medicine Expert, Athlete",
+              "text": "<p>At age 74, my joints ached. I found Omax3 essential in keeping my body limber and pain free. It also supports my brain, keeping me sharp and focused. It is my secret weapon to defying my age as I just completed my 5th Iron Man in Hawaii and have never felt better!<\/p>",
+              "image": "shopify:\/\/shop_images\/test-joseph.jpg",
+              "slide_state": "active"
+            }
+          }
+        },
+        "block_order": [
+          "1497890232632-0",
+          "1497890232632-1",
+          "1497890232632-2"
+        ],
+        "settings": {
+          "style": "default",
+          "title": "Why Athletes use Omax3",
+          "subtitle": "",
+          "button_text": "",
+          "button_link": "",
+          "button_style": "light"
+        }
+      },
+      "vertical-steps": {
+        "type": "vertical-steps",
+        "blocks": {
+          "1497890359880": {
+            "type": "text_row",
+            "settings": {
+              "title": "Sourced from the best",
+              "text": "<p>Omax3 is derived from the richest source of omega-3 in the world: premium-quality, wild-caught anchovies and sardines, harvested off the coast of Peru. Omax3 is certified by Friends of the Sea, which ensures our fisheries&nbsp;follow strict, and sustainable marine practices.<\/p>",
+              "image": "shopify:\/\/shop_images\/step-1.jpg",
+              "slide_state": "active"
+            }
+          },
+          "1497890387622": {
+            "type": "text_row",
+            "settings": {
+              "title": "Pressed and distilled",
+              "text": "<p>Using a state-of-the-art process, the omega-3 oils are double-molecular distilled and cold-pressed for exceptional purity, removing unsafe levels of saturated fats, impurities and toxins.<\/p>",
+              "image": "shopify:\/\/shop_images\/step-2.jpg",
+              "slide_state": "active"
+            }
+          },
+          "1497890401622": {
+            "type": "text_row",
+            "settings": {
+              "title": "Third party tested",
+              "text": "<p>Omax3 conforms to the highest standards of manufacturing for the dietary supplement industry. NSF verifies the identity and quantity of ingredients on the label, and&nbsp;each batch obtains two&nbsp;certificates of analysis to ensure&nbsp;purity and concentration.<\/p>",
+              "image": "shopify:\/\/shop_images\/step-3.jpg",
+              "slide_state": "active"
+            }
+          },
+          "1497890419463": {
+            "type": "text_row",
+            "settings": {
+              "title": "Packed for freshness",
+              "text": "<p>Each Omax3 softgel is individually packed in a seal-tight blister pack, so it doesn&rsquo;t oxidize and remains fresh. By protecting each softgel, there is no fishy smell or taste.<\/p>",
+              "image": "shopify:\/\/shop_images\/step-4_700x700_crop_center_v2.jpg",
+              "slide_state": "active"
+            }
+          }
+        },
+        "block_order": [
+          "1497890359880",
+          "1497890387622",
+          "1497890401622",
+          "1497890419463"
+        ],
+        "settings": {
+          "style": "default",
+          "title": "",
+          "subtitle": "How we do it",
+          "button_text": "",
+          "button_link": "",
+          "button_style": "light"
+        }
+      },
+      "full-media-product": {
+        "type": "full-media-product",
+        "settings": {
+          "style": "color",
+          "alignment": "center",
+          "height": "default",
+          "title": "",
+          "text": "<p>Try Omax3 for 60 days. If you are not satisfied, we don't expect you to pay!<\/p>",
+          "media_layout": "none",
+          "image": "",
+          "video_url": "",
+          "button_text": "",
+          "button_link": "shopify:\/\/pages\/money-back-guarantee",
+          "button_style": "light"
+        }
+      },
+      "shop-full-media": {
+        "type": "shop-full-media",
+        "blocks": {
+          "1499736100566": {
+            "type": "full-width-media",
+            "settings": {
+              "style": "default",
+              "alignment": "left",
+              "height": "default",
+              "title": "Check out our new Omax shop!",
+              "text": "<p>Now get free shipping on all orders and choose Subscribe &amp; Save for an additional 10% off. Click on \"View Details\" on the products below for more info.<\/p>",
+              "media_layout": "image-highlight",
+              "image": "shopify:\/\/shop_images\/Shop-Page4.jpg",
+              "button_text": "View Subscribe & Save",
+              "button_link": "\/collections\/all\/subscribe-and-save",
+              "button_style": "clear-dark"
+            }
+          }
+        },
+        "block_order": [
+          "1499736100566"
+        ],
+        "settings": {}
+      },
+      "template-cart": {
+        "type": "template-cart",
+        "settings": {
+          "order_notes": false,
+          "show_shipping_calculator": false,
+          "shipping_calculator_default_country": "United States"
+        }
+      },
+      "diagram-full-width": {
+        "type": "diagram-full-width",
+        "settings": {
+          "style": "default",
+          "alignment": "center",
+          "height": "default",
+          "title": "Not all Fish Oil is Created Equal",
+          "text": "<p>Fish oil contains omega-3s,&nbsp;but how much you are getting in each supplement can vary dramatically. To determine the actual omega-3 content in your&nbsp;fish oil supplement,&nbsp;read the label and look for the total omega-3 content in each softgel. The top selling&nbsp;fish oil supplements contain only 30% of omega-3 content in each softgel.* Omax3 Ultra-Pure is exceptionally concentrated at 93.9%. That means you get therapeutic&nbsp;results that you can feel.<\/p>",
+          "media_layout": "none",
+          "image": "",
+          "content_image": "shopify:\/\/shop_images\/image.jpg",
+          "button_text": "Shop Now",
+          "button_link": "shopify:\/\/collections\/all",
+          "button_style": "secondary"
+        }
+      },
+      "alternating-content-difference-2": {
+        "type": "alternating-content-difference-2",
+        "blocks": {
+          "1498583024881": {
+            "type": "image",
+            "settings": {
+              "style": "gradient-green",
+              "icon": "",
+              "top_title": "",
+              "title": "Patented ProResolv Formula™",
+              "text": "<p><strong>We start with science.<\/strong> Only Omax3 delivers the powerful benefits of omega-3 in a patented ProResolv formula, developed by Yale-affiliated scientists. Omax3 contains 4X more EPA than DHA, the omega-3s most responsible for&nbsp;fighting inflammation in the body. This optimal 4-to-1 balance can help support joint comfort, muscle recovery, heart health, mood and cognition.<\/p>",
+              "button_text": "",
+              "button_link": "",
+              "button_style": "light",
+              "image": "shopify:\/\/shop_images\/diff-alt-2_05ae25f4-6c51-4360-9f95-b75294b9852c.png",
+              "image_type": "feature_image"
+            }
+          }
+        },
+        "block_order": [
+          "1498583024881"
+        ],
+        "settings": {
+          "title": ""
+        }
+      },
+      "full-text-difference": {
+        "type": "full-text-difference",
+        "settings": {
+          "style": "default",
+          "alignment": "center",
+          "height": "default",
+          "title": "The Omax3® Difference",
+          "text": "<p>Over 8,000 clinical studies conducted by doctors and scientists around the world tout the amazing health benefits of omega-3s. But not all omega-3 supplements are created equal.&nbsp;Omax3 is an ultra-pure, and exceptionally concentrated, omega-3 supplement developed after years of research by Yale-affilited scientists.<\/p>",
+          "media_layout": "none",
+          "image": "",
+          "button_text": "",
+          "button_link": "",
+          "button_style": "light"
+        }
+      },
+      "full-text-story": {
+        "type": "full-text-story",
+        "settings": {
+          "style": "default",
+          "alignment": "center",
+          "height": "default",
+          "title": "Our Story",
+          "text": "<p>We believe that the quality of what you put in your body can make a big difference in your health and your life. In short, ingredients matter. Performance matters. Omax optimizes your health and restores your youthful vitality so you can live&nbsp;<strong>LIFE TO THE MAX!<\/strong><\/p>",
+          "media_layout": "none",
+          "image": "",
+          "button_text": "",
+          "button_link": "",
+          "button_style": "light"
+        }
+      },
+      "alternating-content-story": {
+        "type": "alternating-content-story",
+        "blocks": {
+          "1498838995514": {
+            "type": "image",
+            "settings": {
+              "style": "color",
+              "icon": "",
+              "top_title": "",
+              "title": "Founded by Scientists and Doctors",
+              "text": "<p>Omax3 was developed by a group of Yale-affiliated scientists and doctors who set out to create a more advanced omega-3 supplement. They believed&nbsp;developing a&nbsp;highly concentrated omega-3 formula with a&nbsp;4-to-1 ratio of EPA to DHA, &nbsp;could be the key to maximizing all the health benefits of omega-3s. After years of research and development, and the granting of two U.S. patents, Omax3 the Ultra-Pure Omega-3 was introduced.<\/p>\n<p><strong>Today, Omax3 is trusted by thousands of discerning consumers, athletes and healthcare practitioners around the world.<\/strong><\/p>",
+              "button_text": "View Our USPTO patent",
+              "button_link": "https:\/\/www.google.com\/patents\/US7652068",
+              "button_style": "clear-light",
+              "image": "shopify:\/\/shop_images\/story-alt-1_0b28c898-c7a4-4b1b-bdfb-6e831762b48e.png",
+              "image_type": "background_image"
+            }
+          }
+        },
+        "block_order": [
+          "1498838995514"
+        ],
+        "settings": {
+          "title": ""
+        }
+      },
+      "alternating-content-difference-3": {
+        "type": "alternating-content-difference-3",
+        "blocks": {
+          "1498854927147": {
+            "type": "image",
+            "settings": {
+              "style": "gradient-green",
+              "icon": "",
+              "top_title": "",
+              "title": "When you want the best, choose Omax3 Ultra-Pure",
+              "text": "",
+              "button_text": "Shop",
+              "button_link": "shopify:\/\/collections\/all",
+              "button_style": "secondary",
+              "image": "shopify:\/\/shop_images\/diff-alt-3.png",
+              "image_type": "feature_image"
+            }
+          }
+        },
+        "block_order": [
+          "1498854927147"
+        ],
+        "settings": {
+          "title": ""
+        }
+      },
+      "module-contact-ambassadors": {
+        "type": "module-contact-ambassadors",
+        "settings": {
+          "style": "light",
+          "email-icon": "shopify:\/\/shop_images\/email_d56c27af-72a9-4fd3-bc2c-c99564faa7e4.png",
+          "phone-icon": "shopify:\/\/shop_images\/phone_1e2286cb-0d2a-418d-b3c6-f9d083b952c7.png",
+          "messenger-icon": "shopify:\/\/shop_images\/facebook.png"
+        }
+      },
+      "trust-pilot-review": {
+        "type": "trust-pilot-review",
+        "settings": {}
+      }
+    },
+    "content_for_index": [
+      "home-images-with-text",
+      "1497558112165",
+      "home-text-columns-with-icons",
+      "1497890232632"
+    ]
+  },
+  "presets": {
+    "Cool": {
+      "theme-primary-color": "#0381A2",
+      "theme-primary-color-hover": "#0288b5",
+      "theme-secondary-color": "#554d99",
+      "heading-text-color": "#000000",
+      "body-text-color": "#797676",
+      "border-color": "#e3e3e3",
+      "body-background-color": "#fff",
+      "body-font": "Roboto, sans-serif",
+      "body-font-weight": "300",
+      "heading-font": "'Open Sans', sans-serif",
+      "heading-font-weight": "300",
+      "primary-button-font": "'Open Sans', sans-serif",
+      "primary-button-font-weight": "700",
+      "sections": {
+        "home-slideshow": {
+          "type": "home-slideshow",
+          "blocks": {
+            "slide-1": {
+              "type": "slide",
+              "settings": {
+                "alignment": "center",
+                "title": "Slideshow",
+                "subtitle": "Introduce customers to your shop with lifestyle imagery and product photography."
+              }
+            },
+            "slide-2": {
+              "type": "slide",
+              "settings": {
+                "alignment": "center",
+                "title": "Slideshow",
+                "subtitle": "Introduce customers to your shop with lifestyle imagery and product photography."
+              }
+            }
+          },
+          "block_order": [
+            "slide-1",
+            "slide-2"
+          ],
+          "settings": {
+            "enable": true,
+            "layout": "full-window",
+            "transition": "transition-fade",
+            "autoplay": true
+          }
+        },
+        "home-product-focus": {
+          "type": "home-product-focus",
+          "blocks": {
+            "home-product-focus-1": {
+              "type": "feature",
+              "settings": {
+                "icon": "ion-android-refresh"
+              }
+            },
+            "home-product-focus-2": {
+              "type": "feature",
+              "settings": {
+                "icon": "ion-android-volume-up"
+              }
+            },
+            "home-product-focus-3": {
+              "type": "feature",
+              "settings": {
+                "icon": "ion-battery-half"
+              }
+            },
+            "home-product-focus-4": {
+              "type": "feature",
+              "settings": {
+                "icon": "ion-android-microphone"
+              }
+            }
+          },
+          "block_order": [
+            "home-product-focus-1",
+            "home-product-focus-2",
+            "home-product-focus-3",
+            "home-product-focus-4"
+          ],
+          "settings": {
+            "show_product_image": true,
+            "style": "light",
+            "title": "Product focus",
+            "subtitle": "Highlight your product's finest features."
+          }
+        },
+        "home-images-with-text": {
+          "type": "home-images-with-text",
+          "blocks": {
+            "images-with-text-1": {
+              "type": "image",
+              "settings": {
+                "text": "<p>Say a bit about your brand, a specific product, or promotion.<\/p>"
+              }
+            },
+            "images-with-text-2": {
+              "type": "image",
+              "settings": {
+                "text": "<p>Display up to four images, each with their own unique heading and text.<\/p>"
+              }
+            },
+            "images-with-text-3": {
+              "type": "image",
+              "settings": {
+                "text": "<p>Offer customers a wealth of information while conserving valuable vertical space on your homepage.<\/p>"
+              }
+            }
+          },
+          "block_order": [
+            "images-with-text-1",
+            "images-with-text-2",
+            "images-with-text-3"
+          ],
+          "settings": {
+            "style": "default",
+            "alignment": "left"
+          }
+        },
+        "home-text-columns-with-icons": {
+          "type": "home-text-columns-with-icons",
+          "blocks": {
+            "text-column-1": {
+              "type": "text_column",
+              "settings": {}
+            },
+            "text-column-2": {
+              "type": "text_column",
+              "settings": {}
+            },
+            "text-column-3": {
+              "type": "text_column",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "text-column-1",
+            "text-column-2",
+            "text-column-3"
+          ],
+          "settings": {
+            "style": "default",
+            "title": "Text columns with icons"
+          }
+        },
+        "home-testimonials": {
+          "type": "home-testimonials",
+          "blocks": {
+            "testimonial-1": {
+              "type": "testimonial",
+              "settings": {}
+            },
+            "testimonial-2": {
+              "type": "testimonial",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "testimonial-1",
+            "testimonial-2"
+          ],
+          "settings": {
+            "style": "default",
+            "title": "Testimonials"
+          }
+        },
+        "home-blog-posts": {
+          "type": "home-blog-posts",
+          "settings": {
+            "style": "light",
+            "posts_to_show": "3",
+            "title": "Blog posts"
+          }
+        },
+        "general-social-feeds": {
+          "type": "general-social-feeds",
+          "blocks": {
+            "widget-block-1": {
+              "type": "instagram",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "widget-block-1"
+          ],
+          "settings": {}
+        },
+        "general-footer": {
+          "type": "general-footer",
+          "settings": {
+            "style": "default",
+            "enable_borders": true
+          }
+        }
+      },
+      "content_for_index": [
+        "home-product-focus",
+        "home-images-with-text",
+        "home-text-columns-with-icons",
+        "home-testimonials",
+        "home-blog-posts"
+      ]
+    },
+    "Fresh": {
+      "theme-primary-color": "#857b58",
+      "theme-primary-color-hover": "#6f6850",
+      "theme-secondary-color": "#4e7f74",
+      "heading-text-color": "#191919",
+      "body-text-color": "#5e5e5e",
+      "border-color": "#e6e6e6",
+      "body-background-color": "#ffffff",
+      "body-font": "Roboto Condensed, sans-serif",
+      "body-font-weight": "300",
+      "heading-font": "'Playfair Display', serif",
+      "heading-font-weight": "700",
+      "primary-button-font": "Roboto, sans-serif",
+      "primary-button-font-weight": "700",
+      "sections": {
+        "home-slideshow": {
+          "type": "home-slideshow",
+          "blocks": {
+            "slide-1": {
+              "type": "slide",
+              "settings": {
+                "alignment": "center",
+                "title": "Slideshow",
+                "subtitle": "Introduce customers to your shop with lifestyle imagery and product photography."
+              }
+            },
+            "slide-2": {
+              "type": "slide",
+              "settings": {
+                "alignment": "center",
+                "title": "Slideshow",
+                "subtitle": "Introduce customers to your shop with lifestyle imagery and product photography."
+              }
+            }
+          },
+          "block_order": [
+            "slide-1",
+            "slide-2"
+          ],
+          "settings": {
+            "enable": true,
+            "layout": "full-window",
+            "transition": "transition-slide",
+            "autoplay": false
+          }
+        },
+        "home-featured-collection": {
+          "type": "home-featured-collection",
+          "settings": {
+            "style": "default",
+            "products_per_row": "3",
+            "product_rows": "2",
+            "title": "Featured collection"
+          }
+        },
+        "home-text-columns-with-icons": {
+          "type": "home-text-columns-with-icons",
+          "blocks": {
+            "text-column-1": {
+              "type": "text_column",
+              "settings": {}
+            },
+            "text-column-2": {
+              "type": "text_column",
+              "settings": {}
+            },
+            "text-column-3": {
+              "type": "text_column",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "text-column-1",
+            "text-column-2",
+            "text-column-3"
+          ],
+          "settings": {
+            "style": "default",
+            "title": "Text columns with icons"
+          }
+        },
+        "home-testimonials": {
+          "type": "home-testimonials",
+          "blocks": {
+            "testimonial-1": {
+              "type": "testimonial",
+              "settings": {}
+            },
+            "testimonial-2": {
+              "type": "testimonial",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "testimonial-1",
+            "testimonial-2"
+          ],
+          "settings": {
+            "style": "default",
+            "title": "Testimonials"
+          }
+        },
+        "home-blog-posts": {
+          "type": "home-blog-posts",
+          "settings": {
+            "style": "light",
+            "posts_to_show": "3",
+            "title": "Blog posts"
+          }
+        },
+        "general-social-feeds": {
+          "type": "general-social-feeds",
+          "blocks": {
+            "widget-block-1": {
+              "type": "twitter",
+              "settings": {
+                "style": "gradient"
+              }
+            }
+          },
+          "block_order": [
+            "widget-block-1"
+          ],
+          "settings": {}
+        },
+        "general-footer": {
+          "type": "general-footer",
+          "settings": {
+            "style": "light",
+            "enable_borders": true,
+            "show_logo": true
+          }
+        }
+      },
+      "content_for_index": [
+        "home-featured-collection",
+        "home-text-columns-with-icons",
+        "home-testimonials",
+        "home-blog-posts"
+      ]
+    },
+    "Bold": {
+      "theme-primary-color": "#ea2931",
+      "theme-primary-color-hover": "#d1282f",
+      "theme-secondary-color": "#fd8311",
+      "heading-text-color": "#161a1c",
+      "body-text-color": "#7f7f7f",
+      "border-color": "#e3e3e3",
+      "body-background-color": "#ffffff",
+      "body-font": "'Source Sans Pro', sans-serif",
+      "body-font-weight": "300",
+      "heading-font": "Montserrat, sans-serif",
+      "heading-font-weight": "400",
+      "primary-button-font": "'Source Sans Pro', sans-serif",
+      "primary-button-font-weight": "700",
+      "sections": {
+        "home-slideshow": {
+          "type": "home-slideshow",
+          "blocks": {
+            "slide-1": {
+              "type": "slide",
+              "settings": {
+                "alignment": "center",
+                "title": "Slideshow",
+                "subtitle": "Introduce customers to your shop with lifestyle imagery and product photography."
+              }
+            }
+          },
+          "block_order": [
+            "slide-1"
+          ],
+          "settings": {
+            "enable": true,
+            "layout": "full-width",
+            "transition": "transition-fade",
+            "autoplay": false
+          }
+        },
+        "home-product-focus": {
+          "type": "home-product-focus",
+          "blocks": {
+            "home-product-focus-1": {
+              "type": "feature",
+              "settings": {
+                "icon": "ion-android-refresh"
+              }
+            },
+            "home-product-focus-2": {
+              "type": "feature",
+              "settings": {
+                "icon": "ion-android-volume-up"
+              }
+            },
+            "home-product-focus-3": {
+              "type": "feature",
+              "settings": {
+                "icon": "ion-battery-half"
+              }
+            },
+            "home-product-focus-4": {
+              "type": "feature",
+              "settings": {
+                "icon": "ion-android-microphone"
+              }
+            }
+          },
+          "block_order": [
+            "home-product-focus-1",
+            "home-product-focus-2",
+            "home-product-focus-3",
+            "home-product-focus-4"
+          ],
+          "settings": {
+            "show_product_image": true,
+            "style": "light",
+            "title": "Product focus",
+            "subtitle": "Highlight your product's finest features."
+          }
+        },
+        "home-images-with-text": {
+          "type": "home-images-with-text",
+          "blocks": {
+            "images-with-text-1": {
+              "type": "image",
+              "settings": {
+                "text": "<p>Say a bit about your brand, a specific product, or promotion.<\/p>"
+              }
+            },
+            "images-with-text-2": {
+              "type": "image",
+              "settings": {
+                "text": "<p>Display up to four images, each with their own unique heading and text.<\/p>"
+              }
+            },
+            "images-with-text-3": {
+              "type": "image",
+              "settings": {
+                "text": "<p>Offer customers a wealth of information while conserving valuable vertical space on your homepage.<\/p>"
+              }
+            }
+          },
+          "block_order": [
+            "images-with-text-1",
+            "images-with-text-2",
+            "images-with-text-3"
+          ],
+          "settings": {
+            "style": "default",
+            "alignment": "right"
+          }
+        },
+        "home-text-columns-with-icons": {
+          "type": "home-text-columns-with-icons",
+          "blocks": {
+            "text-column-1": {
+              "type": "text_column",
+              "settings": {}
+            },
+            "text-column-2": {
+              "type": "text_column",
+              "settings": {}
+            },
+            "text-column-3": {
+              "type": "text_column",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "text-column-1",
+            "text-column-2",
+            "text-column-3"
+          ],
+          "settings": {
+            "style": "light",
+            "title": "Text columns with icons"
+          }
+        },
+        "home-testimonials": {
+          "type": "home-testimonials",
+          "blocks": {
+            "testimonial-1": {
+              "type": "testimonial",
+              "settings": {}
+            },
+            "testimonial-2": {
+              "type": "testimonial",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "testimonial-1",
+            "testimonial-2"
+          ],
+          "settings": {
+            "style": "default",
+            "title": "Testimonials"
+          }
+        },
+        "home-blog-posts": {
+          "type": "home-blog-posts",
+          "settings": {
+            "style": "light",
+            "posts_to_show": "2",
+            "title": "Blog posts"
+          }
+        },
+        "general-header": {
+          "type": "general-header",
+          "settings": {
+            "header_sticky": true
+          }
+        },
+        "general-social-feeds": {
+          "type": "general-social-feeds",
+          "blocks": {
+            "widget-block-1": {
+              "type": "instagram",
+              "settings": {}
+            },
+            "widget-block-2": {
+              "type": "twitter",
+              "settings": {
+                "style": "light"
+              }
+            }
+          },
+          "block_order": [
+            "widget-block-1",
+            "widget-block-2"
+          ],
+          "settings": {}
+        },
+        "general-footer": {
+          "type": "general-footer",
+          "settings": {
+            "style": "default",
+            "enable_borders": true,
+            "show_logo": true
+          }
+        }
+      },
+      "content_for_index": [
+        "home-product-focus",
+        "home-images-with-text",
+        "home-text-columns-with-icons",
+        "home-testimonials",
+        "home-blog-posts"
+      ]
+    }
+  }
+}

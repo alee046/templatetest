@@ -1,0 +1,76 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie10 lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie10 lt-ie9" lang="en"><![endif]-->
+<!--[if IE 9 ]><html class="ie9 lt-ie10 no-js" lang="en"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><html class="no-js" lang="en"><![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  {% assign tab_index = 0 %}
+
+  {% if template == 'index' %}
+    <title>{{ shop.name }} | {{ page_title }}</title>
+  {% elsif template == '404' %}
+    <title>{{ "general.404.title" | t }} | {{ shop.name }}</title>
+  {% else %}
+    <title>{{ page_title }} | {{ shop.name }}</title>
+  {% endif %}
+
+  {% if page_description %}
+    <meta name="description" content="{{ page_description | escape }}" />
+  {% endif %}
+
+  {% include 'favicon' %}
+
+  <link rel="canonical" href="{{ canonical_url }}" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  {{ content_for_header }}
+
+  <!-- OrderLogic checkout restrictions ========================================= -->
+  {% include 'order-logic' %}
+
+
+  {% include 'social-meta' %}
+
+  {% include 'scripts-styles-header' %}
+  {% include 'bold-common' %}
+{% include 'bold-ro-init' %}
+{{ 'bold.css' | asset_url | stylesheet_tag }}
+{% include 'bold-product' with product, hide_action: 'header' %}
+<meta name="bold-checkout-styles" content="{{ 'bold-checkout.css' | asset_url }}">
+
+  {% include 'google-tag-manager-head' %}
+</head>
+
+{% include 'additional-classes' %}
+<body class="{{ bodyClasses }}">
+  
+  {% include 'google-tag-manager-body' %}
+
+  {% section 'general-header' %}
+
+  <main class="main-content">
+    
+     {% include 'eyebrow' %}
+    
+    {{ content_for_layout }}    
+  </main>
+
+  {% section 'general-footer' %}
+
+  {% include 'scripts-styles-footer' %}
+  
+  <!-- referral candy referral widget -->
+  <!-- include 'referral-candy-post-purchase-pop' % -->
+
+{% include 'special-offers' %}
+
+</body>
+</html>

@@ -1,0 +1,253 @@
+{%- if section.settings.button_text != blank and section.settings.button_link != blank -%}
+  {% assign has_cta = true %}
+  {% assign has_content = true %}
+{%- endif -%}
+
+<div
+  class="module-wrapper style-{{ section.settings.style }} border"
+  data-section-id="{{ section.id }}"
+  data-section-type="text-columns">
+  <div class="module home-inline">
+
+    {% if section.settings.title != blank %}
+      <div class="module-header long-title home-inline-header">
+          <div class="module-title">
+            <h3>{{ section.settings.title | escape }}</h3>
+          </div>
+        {% if section.settings.subtitle != blank %}
+          <div class="module-subtitle">
+            {{ section.settings.subtitle | escape }}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="module-body home-inline-body">
+      <div
+        class="list column-{{ section.settings.columns_per_row }} clearfix">
+
+        {% for block in section.blocks %}
+
+          <div class="list-item {% if block.settings.image != blank  %}has-image{% endif %}" {{ block.shopify_attributes }}>
+            {% if block.settings.image != blank %}
+              <div class="list-image-wrapper">
+                <img class="list-item-icon"
+                  alt="{{ image.alt | escape }}"
+                  src="{{ block.settings.image | img_url: '600x', crop: 'center' }}">
+              </div>
+            {% endif %}
+
+            <div class="list-text-wrapper with-icons-padding">
+              {% if block.settings.title != blank %}
+                <div class="list-title">
+                  {{ block.settings.title | escape }}
+                </div>
+              {% endif %}
+
+              {% if block.settings.text != blank %}
+                <div class="list-text{% if block.settings.title == blank %} no-margin{% endif %}">
+                  {{  block.settings.text }}
+                </div>
+              {% endif %}
+
+              {% if block.settings.button_text != blank and block.settings.button_link != blank %}
+                <div class="list-cta">
+                  <a class="button list-button {{ block.settings.button_style }}" href="{{ block.settings.button_link }}">
+                    {{ block.settings.button_text | escape }}
+                  </a>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      {% if has_cta %}
+        <div class="module-cta home-full-width-cta home-full-width-body-item">
+          <a class="button {{ section.settings.button_style }}" href="{{ section.settings.button_link }}">
+            {{ section.settings.button_text | escape }}
+          </a>
+        </div>
+      {% endif %}
+
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Text columns with icons",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "select",
+      "id": "style",
+      "label": "Background style",
+      "options": [
+        {
+          "value": "default",
+          "label": "Default"
+        },
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "color",
+          "label": "Color"
+        },
+        {
+          "value": "gradient",
+          "label": "Gradient"
+        },
+        {
+          "value": "secondary-color",
+          "label": "Secondary Color"
+        },
+        {
+          "value": "third-color",
+          "label": "Third Color"
+        },
+        {
+          "value": "fourth-color",
+          "label": "Fourth Color"
+        },
+        {
+          "value": "fifth-color",
+          "label": "Fifth Color"
+        }
+      ],
+      "default": "default"
+    },
+    {
+      "type": "select",
+      "id": "columns_per_row",
+      "label": "Columns per row",
+      "options": [
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        },
+        {
+          "value": "4",
+          "label": "4"
+        }
+      ],
+      "default": "3"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Text columns with icons"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subheading"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "info": "This button is only visible when 'Media type' is set to Image"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Link"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button Style",
+      "options": [
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "primary",
+          "label": "Primary"
+        },
+        {
+          "value": "secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "third",
+          "label": "Third Color"
+        },
+        {
+          "value": "fourth",
+          "label": "Fourth Color"
+        },
+        {
+          "value": "fifth",
+          "label": "Fifth Color"
+        },
+        {
+          "value": "clear-dark",
+          "label": "Clear Dark"
+        },
+        {
+          "value": "clear-light",
+          "label": "Clear Light"
+        }
+      ],
+      "default": "light"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text_column",
+      "name": "Column",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Feature title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Display up to six features with an option to toggle icons on or off, and add unique calls to action.</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Icon image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "category": "Text",
+      "name": "Text columns with icons",
+      "settings": {
+        "title": "Text column with icons",
+        "subtitle": "This is the text column"
+      },
+      "blocks": [
+        {
+          "type": "text_column"
+        },
+        {
+          "type": "text_column"
+        },
+        {
+          "type": "text_column"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

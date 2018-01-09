@@ -1,0 +1,100 @@
+{% if template == 'collection' %}
+  {% include 'template-collection' %}
+{% endif %}
+
+{% if template == 'collection.alternating' %}
+  {% include 'template-collection.alternating' %}
+{% endif %}
+
+{% if template == 'collection.random' %}
+  {% include 'template-collection.random' %}
+{% endif %}
+
+{% schema %}
+{
+  "name": "Collection page",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Launch offers three distinct templates that can be applied to a collection page. You'll find these in the Theme templates section of each Collection in your Shopify admin."
+    },
+    {
+      "type": "select",
+      "id": "products_per_page",
+      "label": "Products per page",
+      "options": [
+        {
+          "value": "4",
+          "label": "4"
+        },
+        {
+          "value": "6",
+          "label": "6"
+        },
+        {
+          "value": "8",
+          "label": "8"
+        },
+        {
+          "value": "10",
+          "label": "10"
+        },
+        {
+          "value": "12",
+          "label": "12"
+        },
+        {
+          "value": "20",
+          "label": "20"
+        },
+        {
+          "value": "30",
+          "label": "30"
+        },
+        {
+          "value": "40",
+          "label": "40"
+        },
+        {
+          "value": "50",
+          "label": "50"
+        }
+      ],
+      "default": "12"
+    },
+    {
+      "type": "select",
+      "id": "mobile_text_placement",
+      "label": "Mobile product information placement",
+      "options": [
+        {
+          "value": "overlay",
+          "label": "Overlay image"
+        },
+        {
+          "value": "below",
+          "label": "Below image"
+        }
+      ],
+      "default": "overlay",
+      "info": "Show product information as an overlay on the product image, or below. Does not effect the Alternating template."
+    },
+    {
+      "type": "header",
+      "content": "Stock level indicator"
+    },
+    {
+      "type": "checkbox",
+      "id": "stock_overlay_show",
+      "label": "Show indicator",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "stock_overlay_threshold",
+      "label": "Display when stock is lower than:",
+      "default": "5"
+    }
+  ]
+}
+{% endschema %}
